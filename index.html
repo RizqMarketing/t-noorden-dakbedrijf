@@ -148,16 +148,6 @@
       50% { opacity: 0.12; transform: translateY(-52%) scale(1.02); }
     }
 
-    /* snowflakes */
-    .snowflakes { position: absolute; inset: 0; z-index: 1; pointer-events: none; overflow: hidden; }
-    .flake {
-      position: absolute; top: -20px; color: rgba(200,216,236,0.35);
-      font-size: 1rem; animation: fall linear infinite;
-      user-select: none;
-    }
-    @keyframes fall {
-      to { transform: translateY(110vh) rotate(720deg); }
-    }
 
     .hero-content { position: relative; z-index: 2; }
 
@@ -919,6 +909,32 @@
       box-sizing: border-box;
     }
 
+    /* ─── LICHTE SECTIES ─── */
+    .section-light { background: #f8fafc !important; }
+    .section-light::before { display: none; }
+    .section-light .section-title { color: #0d1f3c; }
+    .section-light .section-body { color: #4a5568; }
+    .section-light .section-label { color: var(--blue-vivid); }
+    .section-light .section-label::before { background: var(--blue-vivid); }
+    .section-light .service-card {
+      background: #ffffff;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    }
+    .section-light .service-card:hover { background: #f0f4ff; box-shadow: 0 4px 32px rgba(46,111,212,0.12); }
+    .section-light .service-title { color: #0d1f3c; }
+    .section-light .service-desc { color: #4a5568; }
+    .section-light .service-num { color: rgba(46,111,212,0.1); }
+    .section-light .review-card {
+      background: #ffffff;
+      border-color: rgba(46,111,212,0.15);
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .section-light .review-card:hover { border-color: rgba(46,111,212,0.35); }
+    .section-light .review-quote { color: #4a5568; }
+    .section-light .review-name { color: #0d1f3c; }
+    .section-light .review-city { color: #7a9ab8; }
+    .section-light .review-mark { color: rgba(46,111,212,0.1); }
+
     /* ─── WERKGEBIED ─── */
     #werkgebied { background: var(--navy-deep); position: relative; overflow: hidden; }
     #werkgebied::before {
@@ -1087,26 +1103,6 @@
   <div class="hero-bg"></div>
   <div class="hero-grid"></div>
 
-  <!-- sneeuw hero -->
-  <div class="snowflakes" aria-hidden="true">
-      <span class="flake" style="left:3%;animation-duration:12s;animation-delay:0s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:16px;height:16px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/><line x1="9" y1="19" x2="12" y2="22"/><line x1="15" y1="19" x2="12" y2="22"/><line x1="5" y1="9" x2="2" y2="12"/><line x1="5" y1="15" x2="2" y2="12"/><line x1="19" y1="9" x2="22" y2="12"/><line x1="19" y1="15" x2="22" y2="12"/></svg></span>
-      <span class="flake" style="left:8%;animation-duration:14s;animation-delay:1s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:13px;height:13px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/><line x1="5" y1="9" x2="2" y2="12"/><line x1="5" y1="15" x2="2" y2="12"/></svg></span>
-      <span class="flake" style="left:14%;animation-duration:9s;animation-delay:3s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:9px;height:9px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg></span>
-      <span class="flake" style="left:20%;animation-duration:16s;animation-delay:0.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:22px;height:22px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/><line x1="9" y1="19" x2="12" y2="22"/><line x1="15" y1="19" x2="12" y2="22"/><line x1="5" y1="9" x2="2" y2="12"/><line x1="5" y1="15" x2="2" y2="12"/><line x1="19" y1="9" x2="22" y2="12"/><line x1="19" y1="15" x2="22" y2="12"/></svg></span>
-      <span class="flake" style="left:27%;animation-duration:11s;animation-delay:6s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:11px;height:11px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/><line x1="5" y1="9" x2="2" y2="12"/><line x1="5" y1="15" x2="2" y2="12"/></svg></span>
-      <span class="flake" style="left:33%;animation-duration:13s;animation-delay:2s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:8px;height:8px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg></span>
-      <span class="flake" style="left:39%;animation-duration:10s;animation-delay:8s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:15px;height:15px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/><line x1="9" y1="19" x2="12" y2="22"/><line x1="15" y1="19" x2="12" y2="22"/></svg></span>
-      <span class="flake" style="left:45%;animation-duration:17s;animation-delay:4s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:7px;height:7px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg></span>
-      <span class="flake" style="left:52%;animation-duration:12s;animation-delay:1.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:18px;height:18px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/><line x1="9" y1="19" x2="12" y2="22"/><line x1="15" y1="19" x2="12" y2="22"/><line x1="5" y1="9" x2="2" y2="12"/><line x1="5" y1="15" x2="2" y2="12"/><line x1="19" y1="9" x2="22" y2="12"/><line x1="19" y1="15" x2="22" y2="12"/></svg></span>
-      <span class="flake" style="left:58%;animation-duration:15s;animation-delay:7s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:10px;height:10px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/></svg></span>
-      <span class="flake" style="left:64%;animation-duration:9s;animation-delay:2.5s"> <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:20px;height:20px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/><line x1="9" y1="19" x2="12" y2="22"/><line x1="15" y1="19" x2="12" y2="22"/><line x1="5" y1="9" x2="2" y2="12"/><line x1="5" y1="15" x2="2" y2="12"/><line x1="19" y1="9" x2="22" y2="12"/><line x1="19" y1="15" x2="22" y2="12"/></svg></span>
-      <span class="flake" style="left:70%;animation-duration:13s;animation-delay:5s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:12px;height:12px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg></span>
-      <span class="flake" style="left:76%;animation-duration:11s;animation-delay:9s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:16px;height:16px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/><line x1="5" y1="9" x2="2" y2="12"/><line x1="5" y1="15" x2="2" y2="12"/></svg></span>
-      <span class="flake" style="left:82%;animation-duration:14s;animation-delay:3.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:9px;height:9px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg></span>
-      <span class="flake" style="left:87%;animation-duration:10s;animation-delay:1s">  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:24px;height:24px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/><line x1="9" y1="19" x2="12" y2="22"/><line x1="15" y1="19" x2="12" y2="22"/><line x1="5" y1="9" x2="2" y2="12"/><line x1="5" y1="15" x2="2" y2="12"/><line x1="19" y1="9" x2="22" y2="12"/><line x1="19" y1="15" x2="22" y2="12"/></svg></span>
-      <span class="flake" style="left:93%;animation-duration:15s;animation-delay:6.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:13px;height:13px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/><line x1="9" y1="5" x2="12" y2="2"/><line x1="15" y1="5" x2="12" y2="2"/></svg></span>
-      <span class="flake" style="left:97%;animation-duration:12s;animation-delay:4.5s"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" style="width:8px;height:8px"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/><line x1="19.07" y1="4.93" x2="4.93" y2="19.07"/></svg></span>
-  </div>
 
 
 
@@ -1205,7 +1201,7 @@
 </div>
 
 <!-- ── DIENSTEN ───────────────────────────────────── -->
-<section id="diensten">
+<section id="diensten" class="section-light">
   <div class="services-header reveal">
     <div class="section-label">Wat Wij Doen</div>
     <h2 class="section-title">Onze Dakdiensten</h2>
@@ -1442,7 +1438,7 @@
 </section>
 
 <!-- ── REVIEWS ────────────────────────────────────── -->
-<section id="reviews">
+<section id="reviews" class="section-light">
   <div class="reveal">
     <div class="section-label">Wat Klanten Zeggen</div>
     <h2 class="section-title">Klantervaringen</h2>
