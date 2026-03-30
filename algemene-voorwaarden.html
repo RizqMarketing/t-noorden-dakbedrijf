@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Algemene Voorwaarden – Dakbedrijf 'T Noorden</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Barlow+Condensed:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy-deep: #060e1e;
+      --navy-mid: #0a1628;
+      --blue-accent: #2e6fd4;
+      --ice: #a8d4ff;
+      --white: #f0f4ff;
+      --silver: #8899bb;
+      --steel: #5a6e8a;
+    }
+    body {
+      background: var(--navy-deep);
+      color: var(--white);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.95rem;
+      line-height: 1.75;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(6,14,30,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(46,111,212,0.2);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 80px;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+    .nav-logo img { height: 56px; width: auto; }
+    .nav-logo-text { font-family: 'Fjalla One', sans-serif; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white); line-height: 1.2; }
+    .nav-logo-text span { display: block; font-size: 0.6rem; letter-spacing: 0.2em; color: var(--steel); }
+    .nav-back {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--silver); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--ice); }
+
+    /* HEADER */
+    .av-header {
+      background: linear-gradient(160deg, #060e1e 0%, #0d1f3c 60%, #0a1628 100%);
+      border-bottom: 1px solid rgba(46,111,212,0.2);
+      padding: 60px 5% 48px;
+      position: relative; overflow: hidden;
+    }
+    .av-header::before {
+      content: '';
+      position: absolute; top: -100px; right: -100px;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(46,111,212,0.1), transparent 70%);
+    }
+    .av-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em;
+      text-transform: uppercase; color: var(--blue-accent);
+      margin-bottom: 12px;
+    }
+    .av-title {
+      font-family: 'Fjalla One', sans-serif;
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      letter-spacing: 0.02em; text-transform: uppercase;
+      color: var(--white); margin-bottom: 16px;
+    }
+    .av-meta {
+      font-size: 0.85rem; color: var(--steel);
+      display: flex; flex-wrap: wrap; gap: 8px 24px;
+    }
+    .av-meta a { color: var(--steel); text-decoration: none; }
+    .av-meta a:hover { color: var(--ice); }
+    .av-stripe {
+      height: 3px; width: 80px; margin-top: 24px;
+      background: linear-gradient(90deg, var(--blue-accent), var(--ice));
+      border-radius: 2px;
+    }
+
+    /* CONTENT */
+    .av-wrapper {
+      max-width: 860px; margin: 0 auto;
+      padding: 60px 5% 100px;
+    }
+    .av-intro {
+      background: rgba(46,111,212,0.06);
+      border: 1px solid rgba(46,111,212,0.2);
+      border-left: 3px solid var(--blue-accent);
+      border-radius: 4px;
+      padding: 20px 24px;
+      margin-bottom: 48px;
+      color: var(--silver);
+      font-size: 0.9rem;
+    }
+    .av-intro strong { color: var(--white); }
+
+    .av-article {
+      margin-bottom: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(46,111,212,0.1);
+    }
+    .av-article:last-child { border-bottom: none; }
+
+    .av-article h2 {
+      font-family: 'Fjalla One', sans-serif;
+      font-size: 1.15rem; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--ice);
+      margin-bottom: 14px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .av-article h2::before {
+      content: '';
+      display: inline-block; width: 4px; height: 18px;
+      background: var(--blue-accent); border-radius: 2px; flex-shrink: 0;
+    }
+    .av-article p {
+      color: #8899bb;
+      margin-bottom: 12px;
+      font-size: 0.92rem;
+    }
+    .av-article p:last-child { margin-bottom: 0; }
+
+    /* OPLEVERINGSVERSLAG */
+    .av-section-title {
+      font-family: 'Fjalla One', sans-serif;
+      font-size: 1.5rem; letter-spacing: 0.05em;
+      text-transform: uppercase; color: var(--white);
+      margin: 60px 0 24px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(46,111,212,0.2);
+    }
+    .verslag-box {
+      background: rgba(10,22,46,0.6);
+      border: 1px solid rgba(46,111,212,0.2);
+      border-radius: 6px;
+      padding: 32px;
+    }
+    .verslag-row {
+      display: flex; gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(46,111,212,0.08);
+      font-size: 0.9rem;
+    }
+    .verslag-row:last-child { border-bottom: none; }
+    .verslag-label { color: var(--steel); min-width: 220px; flex-shrink: 0; }
+    .verslag-value { color: var(--silver); border-bottom: 1px solid rgba(46,111,212,0.2); flex: 1; min-height: 20px; }
+    .verslag-check { display: flex; gap: 24px; flex-wrap: wrap; margin-top: 8px; }
+    .verslag-check label { display: flex; align-items: center; gap: 8px; color: var(--silver); cursor: pointer; }
+    .verslag-options {
+      display: flex; flex-direction: column; gap: 10px;
+      margin-top: 8px;
+    }
+    .verslag-options label { display: flex; align-items: flex-start; gap: 10px; color: var(--silver); font-size: 0.88rem; }
+    .verslag-textarea {
+      width: 100%; margin-top: 8px;
+      background: rgba(46,111,212,0.05);
+      border: 1px solid rgba(46,111,212,0.2);
+      border-radius: 4px; padding: 10px 14px;
+      color: var(--silver); font-family: 'Inter', sans-serif;
+      font-size: 0.88rem; resize: vertical; min-height: 70px;
+    }
+    .verslag-sign {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+      margin-top: 32px;
+    }
+    .sign-block { display: flex; flex-direction: column; gap: 8px; }
+    .sign-label { font-size: 0.8rem; color: var(--steel); text-transform: uppercase; letter-spacing: 0.1em; }
+    .sign-name { color: var(--white); font-weight: 500; }
+    .sign-line { border-bottom: 1px solid rgba(46,111,212,0.3); height: 40px; margin-top: 12px; }
+
+    /* FOOTER */
+    .av-footer {
+      background: rgba(6,14,30,0.9);
+      border-top: 1px solid rgba(46,111,212,0.15);
+      padding: 24px 5%;
+      text-align: center;
+      font-size: 0.8rem; color: var(--steel);
+    }
+    .av-footer a { color: var(--steel); text-decoration: none; }
+    .av-footer a:hover { color: var(--ice); }
+
+    @media (max-width: 600px) {
+      .verslag-row { flex-direction: column; }
+      .verslag-label { min-width: unset; }
+      .verslag-sign { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Dakbedrijf 'T Noorden" />
+    <div class="nav-logo-text">
+      Dakbedrijf
+      <span>'T Noorden</span>
+    </div>
+  </a>
+  <a class="nav-back" href="index.html">← Terug naar website</a>
+</nav>
+
+<div class="av-header">
+  <div class="av-label">Juridisch</div>
+  <h1 class="av-title">Algemene Voorwaarden</h1>
+  <div class="av-meta">
+    <span><strong style="color:var(--white)">Dakbedrijf 'T Noorden</strong></span>
+    <span>Winthontlaan 200, 3526 KV Utrecht</span>
+    <span><a href="tel:0858001570">085 80 01 570</a></span>
+    <span><a href="mailto:info@dakbedrijftnoorden.nl">info@dakbedrijftnoorden.nl</a></span>
+  </div>
+  <div class="av-stripe"></div>
+</div>
+
+<div class="av-wrapper">
+
+  <div class="av-intro">
+    Hieronder vindt u onze algemene voorwaarden, waarin wij de bepalingen vastleggen waaronder wij onze diensten aan onze opdrachtgevers leveren. Door gebruik te maken van onze diensten gaat u akkoord met de onderstaande voorwaarden. Lees deze zorgvuldig door. Heeft u vragen over een of meer clausules? Aarzel niet en stel ze gerust — wij lichten ze graag toe via <strong><a href="mailto:info@dakbedrijftnoorden.nl" style="color:var(--ice);text-decoration:none;">info@dakbedrijftnoorden.nl</a></strong>.
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 1 – Definities</h2>
+    <p><strong style="color:var(--white)">Uitvoerder:</strong> Dakbedrijf 'T Noorden, gevestigd te Winthontlaan 200, 3526 KV Utrecht — Telefoon: 085 80 01 570 — E-mail: info@dakbedrijftnoorden.nl</p>
+    <p><strong style="color:var(--white)">Algemene condities:</strong> de condities die hier vermeld staan.</p>
+    <p><strong style="color:var(--white)">Defect:</strong> er is sprake van een mankement als het opgeleverde, of een onderdeel ervan, niet de kenmerken bezit die essentieel zijn voor normaal gebruik. Hierbij wordt uitgezonderd situaties waarin de Aannemer op instructie van de Opdrachtgever heeft gehandeld en/of het mankement binnen de risicosfeer van de Opdrachtgever valt.</p>
+    <p><strong style="color:var(--white)">Taak:</strong> het uitvoeren van werkzaamheden door de Dakdekker in de ruimste zin van het woord voor de Opdrachtgever.</p>
+    <p><strong style="color:var(--white)">Opdrachtgever:</strong> degene met wie de Dakdekker in onderhandeling treedt en/of met wie de Dakdekker een overeenkomst aangaat voor het uitvoeren van de Opdracht, die ofwel een consument is, handelend in de uitoefening van een beroep of bedrijf, of een Vereniging van Eigenaren.</p>
+    <p><strong style="color:var(--white)">Overeenkomst:</strong> de afspraak om werkzaamheden uit te voeren door de Dakdekker voor de Opdrachtgever, met inbegrip van, maar niet beperkt tot, werkzaamheden aan daken, dakkapellen, schoorstenen, onderhouds-, renovatie-, herstel- en reparatiewerkzaamheden, vervanging, bedekking, bescherming, inspectie, isolatie, het opsporen en verhelpen van lekkages, coatings, dakpannen, nokvorsten, bitumen dakbedekking, en het bestrijden van overlast door dieren.</p>
+    <p><strong style="color:var(--white)">Betrokkenen:</strong> Aannemer en Opdrachtgever gezamenlijk.</p>
+    <p><strong style="color:var(--white)">Tekortkoming:</strong> Een wezenlijke verplichting uit hoofde van de Overeenkomst of gerelateerd aan de Overeenkomst, die door de Aannemer wordt geschonden of verwaarloosd, en waarbij deze schending of nalatigheid niet onmiddellijk kan worden hersteld; of als de schending of nalatigheid wel hersteld kan worden, deze niet binnen dertig (30) dagen is hersteld na een schriftelijke kennisgeving.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 2 – Toepasbaarheid van algemene condities</h2>
+    <p>Alle rechtsbetrekkingen tussen de Dakdekker en Opdrachtgever, met inbegrip van verstrekte offertes, aanbiedingen en opdrachtbevestigingen, vallen onder deze Algemene Voorwaarden. Deze voorwaarden zijn ook relevant voor nieuwe, gewijzigde of aangevulde Overeenkomsten, evenals voor rechtsverhoudingen die voortvloeien uit een dergelijke Overeenkomst, zelfs na het beëindigen ervan.</p>
+    <p>Afwijkingen van de Algemene Voorwaarden zijn alleen geldig als ze schriftelijk zijn overeengekomen door de betrokken partijen. De toepasbaarheid van eventuele algemene voorwaarden van de Opdrachtgever wordt hierbij uitdrukkelijk uitgesloten.</p>
+    <p>Voor de interpretatie van deze Algemene Voorwaarden wordt een elektronisch bericht (e-mail, WhatsApp, Telegram, Instagram, LinkedIn, enz.) gelijkgesteld aan een schriftelijk bericht. De Dakdekker heeft het recht deze Algemene Voorwaarden eenzijdig te wijzigen. Wijzigingen zijn ook van toepassing op bestaande Overeenkomsten.</p>
+    <p>Als een of meer artikelen van deze Algemene Voorwaarden in strijd zijn met dwingende wettelijke bepalingen, worden de dwingende bepalingen geacht in de plaats te komen van de ongeldige artikelen. Opvallende fouten in offertes, aanbiedingen, opdrachtbevestigingen, facturen of Overeenkomsten binden de Dakdekker niet.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 3 – Oprichting Overeenkomst, aanbiedingen en offertes</h2>
+    <p>Indien de Klant wenst gebruik te maken van de diensten die de Uitvoerder aanbiedt, kan de Opdracht hiertoe schriftelijk of mondeling plaatsvinden, of voortkomen uit een handeling, zoals het aanvangen van de werkzaamheden bij spoedopdrachten. Meestal zal de Klant een prijsopgaaf aanvragen via een formulier op de website.</p>
+    <p>Voorstellen en prijsopgaven van de Uitvoerder blijven hoogstens veertien (14) dagen geldig, tenzij in het aanbod een andere termijn voor aanvaarding is vermeld. Offertes worden verstuurd via administratiesoftware en kunnen door de Klant digitaal worden ondertekend.</p>
+    <p>Alle (op)levertermijnen voor de uit te voeren werkzaamheden zijn richtlijnen. Het overschrijden van dergelijke termijnen geeft de Klant geen recht om de Overeenkomst te ontbinden of schadevergoeding te eisen. De Uitvoerder behoudt zich het recht voor om de Opdracht te weigeren om redenen die voor hem van belang zijn.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 4 – Uitvoering van de overeenkomst</h2>
+    <p>De Overeenkomst wordt door Aannemer naar beste kennis en kunde uitgevoerd, volgens de standaarden van adequaat vakmanschap. De toewijding van Aannemer aan de opdracht is altijd een inzetverplichting en nooit een resultaatsverplichting.</p>
+    <p>Het is de verantwoordelijkheid van Aannemer om Opdrachtgever te informeren over de essentiële materialen en/of hulpstoffen die vereist zijn voor de uitvoering van de Overeenkomst. Alle schade die voortvloeit uit het niet opvolgen van dergelijke waarschuwingen komt voor rekening en risico van Opdrachtgever.</p>
+    <p>Aannemer heeft de bevoegdheid om de werkzaamheden onder de Overeenkomst te laten uitvoeren door assistenten of externe partijen. Opdrachtgever moet ervoor zorgen dat Aannemer toegang heeft tot correcte en alle relevante informatie, dat er veilige werkomstandigheden zijn, en dat alle overeengekomen hulpmiddelen beschikbaar zijn.</p>
+    <p>Opdrachtgever moet zich onthouden van gedrag dat als ongepast, onbetamelijk of misleidend kan worden beschouwd. Artikel 10 (Beëindiging) is van overeenkomstige toepassing.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 5 – Afrekening</h2>
+    <p>Aannemer is gerechtigd om voorafgaand aan de aanvang van de Overeenkomst een vooruitbetaling bij Opdrachtgever in rekening te brengen; het bedrag van de vooruitbetaling zal nooit de vijftig procent (50%) van de overeengekomen prijs overschrijden.</p>
+    <p>Na afronding van de Opdracht wordt het eindproduct aan Opdrachtgever overgedragen. Opdrachtgever wordt geacht de factuur voor de voltooide Opdracht onmiddellijk na de oplevering te voldoen, doch in ieder geval binnen één (1) dag na de factuurdatum.</p>
+    <p>Als Opdrachtgever niet binnen de overeengekomen termijn betaalt, verstuurt Aannemer één ingebrekestelling met een termijn van veertien (14) dagen. Bij verzuim zijn naast de hoofdsom ook de wettelijke (handels)rente en buitengerechtelijke incassokosten verschuldigd. Voor elke te late betaling na ingebrekestelling geldt een minimumbedrag van € 40,00.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 6 – Tarieven</h2>
+    <p>De genoemde prijzen in offertes, aanbiedingen en facturen van Aannemer zijn exclusief btw en eventuele andere belastingen van overheidswege.</p>
+    <p>Afhankelijk van de te verrichten Opdracht kan het zijn dat Opdrachtgever hulpmiddelen moet aankopen of dat Aannemer deze namens Opdrachtgever aanschaft (zoals pannenliften, grindzuigers, valbeveiliging, transport, hoogwerkers en containers). Deze kosten zijn voor rekening van Opdrachtgever.</p>
+    <p>Aannemer behoudt het recht om tot tien procent (10%) af te wijken van de richtprijs of het geschatte aantal uren. Bij een overschrijding van meer dan 10% dient Aannemer Opdrachtgever tijdig te informeren. In dat geval heeft Opdrachtgever het recht om het meerdere deel te annuleren.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 7 – Prijsfluctuatie en verhoging</h2>
+    <p>Aannemer heeft het recht om de tarieven aan te passen op basis van (a) veranderingen in kostenelementen tijdens de looptijd van de Overeenkomst, (b) inflatie volgens het jaarlijks berekende CPI of DPI van het CBS, en (c) binnen drie (3) maanden na het aangaan van de Overeenkomst. In geval van prijsstijgingen binnen drie maanden na het sluiten van de Overeenkomst, hebben consumenten het recht de Overeenkomst op te zeggen.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 8 – Duur van de Overeenkomst en Opdrachttermijn</h2>
+    <p>De Overeenkomst wordt aangegaan voor de periode zoals mondeling of schriftelijk overeengekomen, tenzij de aard van de overeenkomst anders vereist.</p>
+    <p>Aannemer biedt ook diensten aan in de vorm van een abonnement, gericht op dakinspectie en klein onderhoud. Het abonnement wordt aangegaan voor een periode van 12 maanden, zonder mogelijkheid tot tussentijdse opzegging. Na genoemde periode wordt het abonnement automatisch stilzwijgend verlengd voor onbepaalde tijd, met een opzegtermijn van maximaal één maand.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 9 – Aanpassing van de Overeenkomst</h2>
+    <p>Een wijziging of aanvulling van de Overeenkomst kan gevolgen hebben voor de voltooiingstijd van de Opdracht en/of financiële en/of kwalitatieve aspecten. Wanneer Aannemer dit vermoedt, zal hij Opdrachtgever tijdig en schriftelijk op de hoogte stellen. Aannemer zal pas na schriftelijke goedkeuring van Opdrachtgever beginnen met de aanvullende werkzaamheden.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 10 – Beëindiging van de Overeenkomst</h2>
+    <p>Opdrachtgever heeft de vrijheid om de Overeenkomst met Aannemer op elk gewenst moment schriftelijk op te zeggen, tenzij er schriftelijk anders is overeengekomen.</p>
+    <p>Indien Opdrachtgever de Overeenkomst opzegt voordat Aannemer is aangevangen, dient Opdrachtgever dertig procent (30%) van het overeengekomen aannemingsbedrag te voldoen als compensatie.</p>
+    <p>Wanneer Opdrachtgever de Overeenkomst opzegt nadat Aannemer reeds gestart is, is Opdrachtgever verplicht het bedrag te betalen dat overeenkomt met de reeds uitgevoerde werkzaamheden, vermeerderd met 30% als vergoeding voor het positieve contractbelang.</p>
+    <p>Aannemer behoudt het recht om de Overeenkomst te beëindigen om gewichtige redenen, zoals het niet nakomen van afspraken, onaanvaardbaar gedrag van Opdrachtgever, of als de veiligheid van medewerkers niet kan worden gegarandeerd.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 11 – Overmachtsclausule</h2>
+    <p>Als overmacht wordt beschouwd elke situatie die volledig of gedeeltelijk de nakoming van Aannemers verplichtingen verhindert, waaronder: wanprestatie van derden, overheidsmaatregelen, technische storingen, stakingen, weersomstandigheden, lichamelijk letsel of arbeidsongeschiktheid, natuurrampen, en oorlog of terrorisme.</p>
+    <p>Na een overmachtsituatie die dertig (30) kalenderdagen heeft geduurd, hebben de Partijen het recht om het niet-uitvoerbare deel van de Overeenkomst schriftelijk te ontbinden. Aannemer is niet aansprakelijk voor enige vorm van schade in geval van overmacht.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 12 – Compensatie en tijdelijke opschorting</h2>
+    <p>Opdrachtgever verzaakt aan zijn recht om een schuld aan Aannemer te vereffenen met een claim op Aannemer en om de uitvoering van enige voortkomende verbintenis op te schorten. Consumenten behouden het recht op compensatie en opschorting voor zover dit recht krachtens de wet aan hen is toegekend.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 13 – Overdracht van privileges en plichten</h2>
+    <p>De privileges en plichten die resulteren uit een gesloten Overeenkomst kunnen niet door Opdrachtgever worden gedelegeerd aan een derde zonder de voorafgaande schriftelijke instemming van Aannemer.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 14 – Voltooiing</h2>
+    <p>Na de afronding van de Taak overdraagt Aannemer het voltooide werk aan Opdrachtgever. Bij deze oplevering kan Aannemer een overdrachtsrapport verstrekken. Opdrachtgever moet onmiddellijk een inspectie uitvoeren bij oplevering. Oplevering kan ook mondeling plaatsvinden.</p>
+    <p>Tijdens de oplevering heeft Opdrachtgever de optie om de Taak te (i) accepteren, (ii) onder voorbehoud te accepteren, of (iii) onder aanduiding van gebreken te weigeren. De Taak wordt geacht te zijn opgeleverd indien betaling is voltooid, het werk in gebruik is genomen, of Opdrachtgever niet binnen een redelijke termijn reageert op de oplevering.</p>
+    <p>Aannemer is aansprakelijk voor verborgen Defecten tot twee jaar na de oplevering. Daarna vervalt het recht van Opdrachtgever om Aannemer aansprakelijk te stellen.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 15 – Garantie</h2>
+    <p>De garantie vervalt wanneer: (i) regelmatig reinigen van de dakbedekking wordt verwaarloosd; (ii) preventief onderhoud niet wordt uitgevoerd; (iii) externe partijen worden ingeschakeld voor werkzaamheden aan de dakbedekking; (iv) lekkage optreedt als gevolg van onzorgvuldig gebruik; (v) schade ontstaat door lekkage; (vi) de onderliggende bouwkundige constructie niet naar behoren functioneert; (vii) samenhang van de ondergrond verloren gaat; (viii) de bestemming van het dak wijzigt; of (ix) bij natuurrampen zoals stormen met windkracht 9 of hoger op de schaal van Beaufort.</p>
+    <p>De garantie kan alleen worden benut als Opdrachtgever bij het melden van de schade het originele garantiecertificaat kan presenteren.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 16 – Klachtplicht</h2>
+    <p>Opdrachtgever moet klachten over Gebreken schriftelijk kenbaar maken aan Aannemer. Zichtbare Gebreken moeten direct bij oplevering worden gemeld. Voor niet-zichtbare Gebreken geldt een termijn van één (1) maand na ontdekking; voor consumenten anderhalve (1,5) maand.</p>
+    <p>Klachten kunnen worden gericht aan: <a href="mailto:info@dakbedrijftnoorden.nl" style="color:var(--ice);">info@dakbedrijftnoorden.nl</a>. De omschrijving moet zo gedetailleerd mogelijk zijn en onderbouwd met bewijsstukken. De vordering wegens gebrekkige prestaties kan tot één (1) jaar na het melden van de klacht juridisch worden ingesteld.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 17 – Verzekering</h2>
+    <p>Indien Aannemer werkzaamheden verricht op de locatie van Opdrachtgever, is de Opdrachtgever verplicht de zaken die nodig zijn voor de uitvoering van de Overeenkomst adequaat te verzekeren tegen onder andere brand, ontploffings- en waterschade, en diefstal.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 18 – Aansprakelijkheid schade</h2>
+    <p>De aansprakelijkheid van Aannemer voor directe schade is beperkt tot het bedrag waarvoor Aannemer verzekerd is. Als geen uitkering onder de verzekering plaatsvindt, is de aansprakelijkheid beperkt tot maximaal € 1.000,00 inclusief btw per incident.</p>
+    <p>Aannemer is niet aansprakelijk voor indirecte schade, waaronder gederfde winst, gederfde omzet, gemiste kansen of schade door bedrijfsstagnatie. Iedere vordering tot schadevergoeding vervalt één (1) jaar na de dag waarop de gebeurtenis is ontdekt of redelijkerwijs had moeten worden ontdekt.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 19 – Verantwoordelijkheid opdrachtgever</h2>
+    <p>Wanneer meerdere personen een Opdracht verstrekken aan Aannemer, zijn zij gezamenlijk aansprakelijk. Indien een Opdracht wordt gegeven door een natuurlijke persoon namens een rechtspersoon, kan deze natuurlijke persoon tevens persoonlijk Opdrachtgever zijn en bij wanbetaling persoonlijk aansprakelijk worden gesteld.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 20 – Vrijwaring</h2>
+    <p>Opdrachtgever vrijwaart Aannemer tegen alle claims van derden die verband houden met de uitgevoerde werkzaamheden. Als Opdrachtgever door derden wordt aangesproken, moet Opdrachtgever Aannemer juridisch en anderszins bijstaan. Alle kosten en schade die hieruit voortvloeien, komen volledig voor rekening en risico van Opdrachtgever.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 21 – Voorbehoud van eigendom</h2>
+    <p>Aannemer blijft eigenaar van het geleverde/geïnstalleerde werk, inclusief materialen en hulpmiddelen, totdat Opdrachtgever heeft voldaan aan alle betalingsverplichtingen. Het werk valt onder het risico van Opdrachtgever vanaf het moment van feitelijke levering.</p>
+    <p>Aannemer behoudt zich het recht voor om het werk te verwijderen als Opdrachtgever niet of niet tijdig voldoet aan zijn betalingsverplichtingen.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 22 – Verwerking van persoonsgegevens</h2>
+    <p>Aannemer verwerkt persoonsgegevens van Opdrachtgever (naam, adres, e-mail, telefoonnummer) uitsluitend om de Overeenkomst te kunnen uitvoeren, in overeenstemming met de AVG. Er worden niet meer gegevens verwerkt dan strikt noodzakelijk.</p>
+    <p>Opdrachtgever heeft het recht op inzage, vergetelheid, rectificatie, dataportabiliteit en beperking van de verwerking. Verzoeken kunnen worden ingediend via e-mail aan <a href="mailto:info@dakbedrijftnoorden.nl" style="color:var(--ice);">info@dakbedrijftnoorden.nl</a>.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 23 – Klanten</h2>
+    <p>Als Opdrachtgever een natuurlijke persoon is die niet handelt in de uitoefening van een beroep of bedrijf, hebben de dwingende wettelijke bepalingen voorrang boven hetgeen is bepaald in deze Algemene Voorwaarden.</p>
+  </div>
+
+  <div class="av-article">
+    <h2>Artikel 24 – Rechtsgebied en bevoegde rechter</h2>
+    <p>Het Nederlands recht is exclusief van toepassing op elke Overeenkomst tussen partijen. Het Weens Koopverdrag is uitdrukkelijk uitgesloten.</p>
+    <p>Alle geschillen die voortvloeien uit of verband houden met de Overeenkomst zullen in eerste instantie worden voorgelegd aan de bevoegde rechter bij de Rechtbank Amsterdam, tenzij de wet dwingend anders voorschrijft. Partijen hebben tevens de mogelijkheid om geschillen voor te leggen aan een van toepassing zijnde geschillencommissie.</p>
+  </div>
+
+  <!-- OPLEVERINGSVERSLAG -->
+  <h2 class="av-section-title">Opleveringsverslag – Dakbedrijf 'T Noorden</h2>
+
+  <div class="verslag-box">
+    <div class="verslag-row">
+      <span class="verslag-label">Uitvoerder</span>
+      <span class="verslag-value" style="color:var(--white);border:none;">Dakbedrijf 'T Noorden</span>
+    </div>
+    <div class="verslag-row">
+      <span class="verslag-label">Opdrachtgever</span>
+      <span class="verslag-value"></span>
+    </div>
+    <div class="verslag-row">
+      <span class="verslag-label">Gerealiseerde werkzaamheden</span>
+      <span class="verslag-value"></span>
+    </div>
+    <div class="verslag-row">
+      <span class="verslag-label">Aanvangsdatum werkzaamheden</span>
+      <span class="verslag-value"></span>
+    </div>
+    <div class="verslag-row">
+      <span class="verslag-label">Voltooiingsdatum werkzaamheden</span>
+      <span class="verslag-value"></span>
+    </div>
+    <div class="verslag-row">
+      <span class="verslag-label">Datum van afronding</span>
+      <span class="verslag-value"></span>
+    </div>
+    <div class="verslag-row" style="flex-direction:column;gap:10px;">
+      <span class="verslag-label">Tekortkomingen vastgesteld door opdrachtgever?</span>
+      <div class="verslag-check">
+        <label><input type="radio" name="tekort" /> Ja</label>
+        <label><input type="radio" name="tekort" /> Nee</label>
+      </div>
+      <span class="verslag-label" style="margin-top:4px;">Indien ja, welke:</span>
+      <textarea class="verslag-textarea"></textarea>
+    </div>
+    <div class="verslag-row" style="flex-direction:column;gap:8px;">
+      <span class="verslag-label">Datum kennisgeving tekortkomingen</span>
+      <span class="verslag-value" style="max-width:240px;"></span>
+    </div>
+    <div class="verslag-row" style="flex-direction:column;gap:10px;">
+      <span class="verslag-label">Tekortkomingen gecorrigeerd vóór opleveringsdatum?</span>
+      <div class="verslag-check">
+        <label><input type="radio" name="gecorr" /> Ja</label>
+        <label><input type="radio" name="gecorr" /> Nee</label>
+      </div>
+    </div>
+    <div class="verslag-row" style="flex-direction:column;gap:10px;">
+      <span class="verslag-label">Beoordeling opdrachtgever</span>
+      <div class="verslag-options">
+        <label><input type="radio" name="oordeel" /> De opdrachtgever keurt de opdracht goed.</label>
+        <label><input type="radio" name="oordeel" /> De opdrachtgever accepteert de opdracht onder voorbehoud van herstel van de tekortkomingen.</label>
+        <label><input type="radio" name="oordeel" /> De opdrachtgever weigert het uitgevoerde werk, onder vermelding van tekortkomingen.</label>
+      </div>
+    </div>
+    <div class="verslag-row" style="flex-direction:column;gap:8px;">
+      <span class="verslag-label">Toelichting opdrachtgever</span>
+      <textarea class="verslag-textarea"></textarea>
+    </div>
+    <div class="verslag-row" style="flex-direction:column;gap:8px;">
+      <span class="verslag-label">Toelichting uitvoerder</span>
+      <textarea class="verslag-textarea"></textarea>
+    </div>
+
+    <div class="verslag-sign">
+      <div class="sign-block">
+        <span class="sign-label">Opdrachtgever</span>
+        <div class="sign-line"></div>
+        <span class="verslag-label" style="margin-top:8px;">Wettelijk vertegenwoordigd door:</span>
+        <div class="sign-line"></div>
+        <span class="verslag-label" style="margin-top:8px;">Datum:</span>
+        <div class="sign-line" style="height:28px;"></div>
+      </div>
+      <div class="sign-block">
+        <span class="sign-label">Opdrachtnemer</span>
+        <span class="sign-name">Dakbedrijf 'T Noorden</span>
+        <div class="sign-line"></div>
+        <span class="verslag-label" style="margin-top:8px;">Wettelijk vertegenwoordigd door:</span>
+        <div class="sign-line"></div>
+        <span class="verslag-label" style="margin-top:8px;">Datum:</span>
+        <div class="sign-line" style="height:28px;"></div>
+      </div>
+    </div>
+
+    <p style="margin-top:24px;font-size:0.8rem;color:var(--steel);border-top:1px solid rgba(46,111,212,0.1);padding-top:16px;">
+      Op dit opleveringsverslag zijn de algemene voorwaarden van Dakbedrijf 'T Noorden (uitvoerder) volledig van kracht.
+    </p>
+  </div>
+
+</div>
+
+<div class="av-footer">
+  © 2024 Dakbedrijf 'T Noorden &nbsp;·&nbsp;
+  Winthontlaan 200, 3526 KV Utrecht &nbsp;·&nbsp;
+  <a href="tel:0858001570">085 80 01 570</a> &nbsp;·&nbsp;
+  <a href="mailto:info@dakbedrijftnoorden.nl">info@dakbedrijftnoorden.nl</a> &nbsp;·&nbsp;
+  <a href="index.html">Terug naar website</a>
+</div>
+
+</body>
+</html>
