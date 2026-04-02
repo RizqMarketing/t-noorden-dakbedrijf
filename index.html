@@ -414,13 +414,13 @@
 
     .services-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 2px;
     }
 
     .service-card {
       background: var(--navy-mid);
-      padding: 40px 36px;
+      padding: 28px 24px 36px;
       position: relative; overflow: hidden;
       cursor: default;
       transition: background 0.3s;
@@ -434,39 +434,189 @@
     .service-card:hover::before { opacity: 1; }
 
     .service-icon {
-      width: 48px; height: 48px; margin-bottom: 24px;
+      width: 36px; height: 36px; margin-bottom: 16px;
       display: block; color: var(--blue-accent);
       filter: drop-shadow(0 0 10px rgba(46,111,212,0.45));
     }
     .service-icon svg { width: 100%; height: 100%; stroke: currentColor; fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
 
     .service-num {
-      position: absolute; right: 24px; bottom: 24px;
+      position: absolute; right: 16px; bottom: 12px;
       font-family: 'Fjalla One', sans-serif;
-      font-size: 4rem; color: rgba(46,111,212,0.08);
+      font-size: 3rem; color: rgba(46,111,212,0.07);
       line-height: 1; user-select: none;
     }
 
     .service-title {
       font-family: 'Fjalla One', sans-serif;
-      font-size: 1.4rem; color: var(--white);
-      margin-bottom: 12px;
+      font-size: 1.1rem; color: var(--white);
+      margin-bottom: 8px;
     }
 
     .service-desc {
-      font-size: 0.9rem; line-height: 1.7; color: var(--text-body);
+      font-size: 0.82rem; line-height: 1.6; color: var(--text-body);
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
     }
 
     .service-link {
       display: inline-flex; align-items: center; gap: 6px;
-      margin-top: 20px;
+      margin-top: 14px;
       font-family: 'Barlow Condensed', sans-serif;
-      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
       color: var(--blue-accent); text-decoration: none;
       transition: gap 0.2s;
     }
     .service-link:hover { gap: 10px; }
     .service-link::after { content: '→'; }
+
+    @media (max-width: 1100px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 700px)  { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ─── PORTFOLIO ─── */
+    #portfolio {
+      background: var(--navy-deep);
+      padding: 100px 5%;
+    }
+    .portfolio-header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+    .portfolio-header .section-label { justify-content: center; }
+    .portfolio-header .section-label::before { display: none; }
+
+    /* Featured 6-cell grid */
+    .portfolio-featured {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 280px 280px;
+      gap: 10px;
+      max-width: 1100px;
+      margin: 0 auto;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .pf-cell {
+      position: relative; overflow: hidden; cursor: pointer;
+    }
+    .pf-cell:first-child {
+      grid-column: 1 / 2;
+      grid-row: 1 / 3;
+    }
+    .pf-cell img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .pf-cell:hover img { transform: scale(1.07); }
+    .pf-cell .pf-hover {
+      position: absolute; inset: 0;
+      background: rgba(6,14,30,0.3);
+      opacity: 0; transition: opacity 0.3s;
+    }
+    .pf-cell:hover .pf-hover { opacity: 1; }
+
+    /* "+meer" last cell */
+    .pf-more-overlay {
+      position: absolute; inset: 0;
+      background: rgba(6,14,30,0.72);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 6px;
+    }
+    .pf-more-overlay span:first-child {
+      font-family: 'Fjalla One', sans-serif;
+      font-size: 2.6rem; color: var(--white); line-height: 1;
+    }
+    .pf-more-overlay span:last-child {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--ice);
+    }
+    .pf-cell.pf-last:hover .pf-more-overlay {
+      background: rgba(46,111,212,0.55);
+    }
+
+    /* Expanded gallery (inline, no modal) */
+    .gallery-expand {
+      display: none;
+      max-width: 1100px;
+      margin: 10px auto 0;
+    }
+    .gallery-expand.active { display: block; }
+    .gallery-grid {
+      columns: 4; column-gap: 10px;
+    }
+    @media (max-width: 900px) { .gallery-grid { columns: 3; } }
+    @media (max-width: 600px) { .gallery-grid { columns: 2; } .portfolio-featured { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; } .pf-cell:first-child { grid-column: 1/2; grid-row: 1/2; } }
+    .gallery-thumb {
+      break-inside: avoid;
+      margin-bottom: 10px;
+      border-radius: 4px;
+      overflow: hidden;
+      cursor: pointer;
+      position: relative;
+    }
+    .gallery-thumb img {
+      width: 100%; display: block;
+      transition: transform 0.4s ease;
+    }
+    .gallery-thumb:hover img { transform: scale(1.05); }
+    .gallery-thumb::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(46,111,212,0.0);
+      transition: background 0.3s;
+    }
+    .gallery-thumb:hover::after { background: rgba(46,111,212,0.15); }
+    .gallery-collapse-btn {
+      display: block; margin: 24px auto 0;
+      background: none;
+      border: 1px solid rgba(46,111,212,0.3);
+      color: var(--silver);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 10px 28px; border-radius: 3px;
+      cursor: pointer; transition: color 0.2s, border-color 0.2s;
+    }
+    .gallery-collapse-btn:hover { color: var(--white); border-color: rgba(46,111,212,0.6); }
+
+    /* Lightbox */
+    .lb-overlay {
+      display: none;
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(4,10,22,0.97);
+      align-items: center; justify-content: center;
+      flex-direction: column;
+    }
+    .lb-overlay.active { display: flex; }
+    .lb-img {
+      max-width: 90vw; max-height: 80vh;
+      object-fit: contain;
+      border-radius: 4px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.7);
+    }
+    .lb-close {
+      position: fixed; top: 20px; right: 28px;
+      font-size: 2.2rem; color: var(--silver);
+      cursor: pointer; background: none; border: none;
+      line-height: 1; transition: color 0.2s;
+    }
+    .lb-close:hover { color: var(--white); }
+    .lb-nav { display: flex; gap: 32px; margin-top: 20px; }
+    .lb-btn {
+      background: rgba(46,111,212,0.15);
+      border: 1px solid rgba(46,111,212,0.3);
+      color: var(--white); font-size: 1.4rem;
+      width: 48px; height: 48px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+      transition: background 0.2s;
+    }
+    .lb-btn:hover { background: rgba(46,111,212,0.35); }
+    .lb-counter {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem; letter-spacing: 0.15em;
+      color: var(--steel); margin-top: 12px;
+    }
 
     /* ─── ABOUT / WHY ─── */
     #over-ons {
@@ -982,6 +1132,18 @@
       .werkgebied-inner { grid-template-columns: 1fr; gap: 48px; }
       .nl-map { max-width: 280px; }
     }
+  
+    /* ─── WHATSAPP WIDGET ─── */
+    .float-whatsapp {
+      position: fixed; bottom: 100px; right: 32px; z-index: 90;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.5);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .float-whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.7); }
   </style>
   <style>
     /* ── OFFERTE POPUP ── */
@@ -1068,6 +1230,7 @@
 
   <ul class="nav-links">
     <li><a href="#diensten">Diensten</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#over-ons">Over Ons</a></li>
     <li><a href="#werkgebied">Werkgebied</a></li>
     <li><a href="#reviews">Reviews</a></li>
@@ -1088,6 +1251,7 @@
   </div>
   <div class="mm-links">
     <a href="#diensten" onclick="document.getElementById('mobileMenu').classList.remove('open')">Diensten <span>›</span></a>
+    <a href="#portfolio" onclick="document.getElementById('mobileMenu').classList.remove('open')">Portfolio <span>›</span></a>
     <a href="#over-ons" onclick="document.getElementById('mobileMenu').classList.remove('open')">Over Ons <span>›</span></a>
     <a href="#werkgebied" onclick="document.getElementById('mobileMenu').classList.remove('open')">Werkgebied <span>›</span></a>
     <a href="#reviews" onclick="document.getElementById('mobileMenu').classList.remove('open')">Reviews <span>›</span></a>
@@ -1214,48 +1378,182 @@
   <div class="services-grid">
     <div class="service-card reveal">
       <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></span>
-      <div class="service-title">Dakbedekking</div>
-      <p class="service-desc">Professionele aanleg en vervanging van dakbedekkingen in pannen, leisteen, bitumen en EPDM. Wij werken met de hoogste kwaliteitsmaterialen voor een langdurig resultaat.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openPopup()">Meer info</a>
+      <div class="service-title">Dakrenovatie</div>
+      <p class="service-desc">Wij bieden complete dakrenovaties, van inspectie en reparatie tot volledige vernieuwing, met aandacht voor kwaliteit, isolatie en een lange levensduur van uw dak.</p>
+      <a class="service-link" href="dakrenovatie.html">Meer Bekijken</a>
       <span class="service-num">01</span>
     </div>
     <div class="service-card reveal" style="transition-delay:0.1s">
-      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
-      <div class="service-title">Dakreparatie</div>
-      <p class="service-desc">Snelle en doeltreffende reparaties bij lekkages, stormschade of versleten dakdelen. Wij komen snel ter plaatse en lossen het probleem definitief op.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openPopup()">Meer info</a>
+      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M5 12H2a10 10 0 0 0 20 0h-3"/><path d="M12 2a10 10 0 0 1 10 10"/><path d="M12 2a10 10 0 0 0-10 10"/><circle cx="12" cy="12" r="3"/></svg></span>
+      <div class="service-title">Bitumen Daken</div>
+      <p class="service-desc">Wij verzorgen alles rondom bitumen daken, van installatie en reparatie tot renovatie en onderhoud, met hoogwaardige materialen en vakmanschap voor een duurzaam resultaat.</p>
+      <a class="service-link" href="bitumen-daken.html">Meer Bekijken</a>
       <span class="service-num">02</span>
     </div>
     <div class="service-card reveal" style="transition-delay:0.2s">
-      <span class="service-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
-      <div class="service-title">Dakisolatie</div>
-      <p class="service-desc">Energiebesparende dakisolatie die uw woning warmer houdt in de winter en koeler in de zomer. Profiteer van subsidies en verlaag uw energierekening.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openPopup()">Meer info</a>
+      <span class="service-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 12 22 12"/><rect x="6" y="12" width="12" height="10"/><line x1="2" y1="12" x2="22" y2="12"/></svg></span>
+      <div class="service-title">Nokvorsten</div>
+      <p class="service-desc">Wij verzorgen alles rondom nokvorsten, van reparatie tot vervanging, voor een stevige en waterdichte afwerking van uw dak, zodat u verzekerd bent van langdurige bescherming.</p>
+      <a class="service-link" href="nokvorsten.html">Meer Bekijken</a>
       <span class="service-num">03</span>
     </div>
     <div class="service-card reveal" style="transition-delay:0.15s">
-      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22V12"/><path d="M12 12C12 12 7 10 5 5c4 0 7 2 7 7z"/><path d="M12 12C12 12 17 10 19 5c-4 0-7 2-7 7z"/></svg></span>
-      <div class="service-title">Groen Dak</div>
-      <p class="service-desc">Sedum- en plantendaken voor een duurzame, milieuvriendelijke oplossing die uw pand verfraait en de levensduur van uw dakbedekking verlengt.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openPopup()">Meer info</a>
+      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M15 2H9v6l-3 4v2h12v-2l-3-4V2z"/><path d="M9 18v4h6v-4"/><line x1="12" y1="2" x2="12" y2="8"/></svg></span>
+      <div class="service-title">Schoorsteen Onderhoud</div>
+      <p class="service-desc">Wij bieden volledig schoorsteenonderhoud, van inspectie tot reparatie en reiniging, voor optimale veiligheid en werking van uw schoorsteen.</p>
+      <a class="service-link" href="schoorsteen-onderhoud.html">Meer Bekijken</a>
       <span class="service-num">04</span>
     </div>
     <div class="service-card reveal" style="transition-delay:0.25s">
-      <span class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></span>
-      <div class="service-title">Zonnepanelen</div>
-      <p class="service-desc">Vakkundige plaatsing van zonnepanelen gecombineerd met dakwerkzaamheden. Wij zorgen voor een waterdichte installatie die decennia meegaat.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openPopup()">Meer info</a>
+      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10"/><path d="M12 8v4l3 3"/><path d="M16 16l4 4"/><path d="M20 16h4v4"/></svg></span>
+      <div class="service-title">Loodreparaties</div>
+      <p class="service-desc">Wij verzorgen professionele loodreparaties om lekkages te voorkomen en de waterdichtheid van uw dak te waarborgen. Onze ervaren vakmensen inspecteren de loodafwerking grondig en voeren uitsluitend noodzakelijke reparaties uit.</p>
+      <a class="service-link" href="loodreparaties.html">Meer Bekijken</a>
       <span class="service-num">05</span>
     </div>
     <div class="service-card reveal" style="transition-delay:0.3s">
-      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
-      <div class="service-title">Spoedservice</div>
-      <p class="service-desc">24 uur per dag, 7 dagen per week bereikbaar voor dringende daklekken en stormschade. Wij zijn er wanneer u ons nodig heeft.</p>
-      <a class="service-link" href="#" onclick="event.preventDefault();openPopup()">Meer info</a>
+      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7"/><path d="M5 9v11a1 1 0 0 0 1 1h4v-5h4v5h4a1 1 0 0 0 1-1V9"/><path d="M2 20h20"/></svg></span>
+      <div class="service-title">Dakgootreiniging</div>
+      <p class="service-desc">Wij bieden grondige dakgootreiniging aan om verstoppingen te voorkomen en een goede waterafvoer te garanderen, waardoor schade aan uw dak en woning effectief wordt vermeden.</p>
+      <a class="service-link" href="dakgootreiniging.html">Meer Bekijken</a>
       <span class="service-num">06</span>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.1s">
+      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></span>
+      <div class="service-title">Spoed</div>
+      <p class="service-desc">Onze spoedservice staat 24/7 voor u klaar om dringende dakproblemen snel en effectief op te lossen, zodat uw veiligheid en comfort altijd gewaarborgd zijn.</p>
+      <a class="service-link" href="spoed.html">Meer Bekijken</a>
+      <span class="service-num">07</span>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.15s">
+      <span class="service-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg></span>
+      <div class="service-title">Dakinspectie</div>
+      <p class="service-desc">Onze dakinspectie biedt een grondige beoordeling van uw dak, waarmee we eventuele problemen vroegtijdig opsporen en advies geven over onderhoud.</p>
+      <a class="service-link" href="dakinspectie.html">Meer Bekijken</a>
+      <span class="service-num">08</span>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.2s">
+      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg></span>
+      <div class="service-title">Daklekkage</div>
+      <p class="service-desc">Bij daklekkage bieden wij snelle en effectieve oplossingen om waterschade te voorkomen. Ons team lokaliseert de oorzaak en repareert direct de lekkage.</p>
+      <a class="service-link" href="daklekkage.html">Meer Bekijken</a>
+      <span class="service-num">09</span>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.25s">
+      <span class="service-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></span>
+      <div class="service-title">Dak Isolatie</div>
+      <p class="service-desc">Onze dakisolatiediensten bieden een grondige analyse van uw dak, waarbij we isolatiemogelijkheden beoordelen en aanbevelingen doen om energie-efficiëntie en wooncomfort te verbeteren.</p>
+      <a class="service-link" href="dak-isolatie.html">Meer Bekijken</a>
+      <span class="service-num">10</span>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.3s">
+      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></span>
+      <div class="service-title">Vogelwering</div>
+      <p class="service-desc">Onze vogelweringsdiensten omvatten een uitgebreide evaluatie van uw woning, waarbij we potentiële problemen opsporen en advies geven over effectieve oplossingen om ongewenste vogels te weren.</p>
+      <a class="service-link" href="vogelwering.html">Meer Bekijken</a>
+      <span class="service-num">11</span>
+    </div>
+    <div class="service-card reveal" style="transition-delay:0.1s">
+      <span class="service-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></span>
+      <div class="service-title">Dak Reparatie</div>
+      <p class="service-desc">Wij verzorgen snelle en vakkundige dakrparaties bij lekkages, stormschade of versleten dakdelen. Ons team komt snel ter plaatse en lost het probleem duurzaam en definitief op.</p>
+      <a class="service-link" href="dak-reparatie.html">Meer Bekijken</a>
+      <span class="service-num">12</span>
     </div>
   </div>
 </section>
+
+<!-- ── PORTFOLIO ──────────────────────────────────── -->
+<section id="portfolio">
+  <div class="portfolio-header reveal">
+    <div class="section-label">Ons Werk</div>
+    <h2 class="section-title">Portfolio</h2>
+    <p class="section-body" style="margin:0 auto;text-align:center;max-width:520px;">Een greep uit onze uitgevoerde dakprojecten door heel Nederland — vakmanschap dat voor zich spreekt.</p>
+  </div>
+
+  <!-- Featured 6-cell grid -->
+  <div class="portfolio-featured reveal">
+    <div class="pf-cell" onclick="openLightbox(0)">
+      <img src="tnoordenfoto/2025-05-20.webp" alt="Dakproject"/>
+      <div class="pf-hover"></div>
+    </div>
+    <div class="pf-cell" onclick="openLightbox(1)">
+      <img src="tnoordenfoto/2025-10-07.webp" alt="Dakproject"/>
+      <div class="pf-hover"></div>
+    </div>
+    <div class="pf-cell" onclick="openLightbox(2)">
+      <img src="tnoordenfoto/2025-05-20 (3).webp" alt="Dakproject"/>
+      <div class="pf-hover"></div>
+    </div>
+    <div class="pf-cell" onclick="openLightbox(3)">
+      <img src="tnoordenfoto/2025-10-07 (5).webp" alt="Dakproject"/>
+      <div class="pf-hover"></div>
+    </div>
+    <div class="pf-cell" onclick="openLightbox(4)">
+      <img src="tnoordenfoto/unnamed.webp" alt="Dakproject"/>
+      <div class="pf-hover"></div>
+    </div>
+    <div class="pf-cell pf-last" onclick="openGallery(5)">
+      <img src="tnoordenfoto/2026-02-09.webp" alt="Meer foto's"/>
+      <div class="pf-more-overlay">
+        <span>+28</span>
+        <span>Bekijk alle foto's</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Inline uitklap (alle 34 foto's) -->
+<div class="gallery-expand" id="galleryExpand">
+  <div class="gallery-grid">
+    <div class="gallery-thumb" onclick="openLightbox(0)"><img src="tnoordenfoto/2025-05-20.webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(1)"><img src="tnoordenfoto/2025-05-20 (1).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(2)"><img src="tnoordenfoto/2025-05-20 (2).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(3)"><img src="tnoordenfoto/2025-05-20 (3).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(4)"><img src="tnoordenfoto/2025-05-20 (4).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(5)"><img src="tnoordenfoto/2025-05-20 (5).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(6)"><img src="tnoordenfoto/2025-05-20 (6).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(7)"><img src="tnoordenfoto/2025-05-20 (7).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(8)"><img src="tnoordenfoto/2025-05-20 (8).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(9)"><img src="tnoordenfoto/2025-05-20 (9).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(10)"><img src="tnoordenfoto/2025-05-20 (10).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(11)"><img src="tnoordenfoto/2025-05-20 (11).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(12)"><img src="tnoordenfoto/2025-05-20 (12).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(13)"><img src="tnoordenfoto/2025-10-07.webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(14)"><img src="tnoordenfoto/2025-10-07 (1).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(15)"><img src="tnoordenfoto/2025-10-07 (2).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(16)"><img src="tnoordenfoto/2025-10-07 (3).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(17)"><img src="tnoordenfoto/2025-10-07 (4).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(18)"><img src="tnoordenfoto/2025-10-07 (5).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(19)"><img src="tnoordenfoto/2025-10-07 (6).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(20)"><img src="tnoordenfoto/2025-10-07 (7).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(21)"><img src="tnoordenfoto/2025-10-07 (8).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(22)"><img src="tnoordenfoto/2025-10-07 (9).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(23)"><img src="tnoordenfoto/2025-10-07 (10).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(24)"><img src="tnoordenfoto/2025-10-07 (11).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(25)"><img src="tnoordenfoto/2025-10-07 (12).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(26)"><img src="tnoordenfoto/2025-10-07 (13).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(27)"><img src="tnoordenfoto/2026-02-09.webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(28)"><img src="tnoordenfoto/unnamed.webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(29)"><img src="tnoordenfoto/unnamed (1).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(30)"><img src="tnoordenfoto/unnamed (2).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(31)"><img src="tnoordenfoto/unnamed (3).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(32)"><img src="tnoordenfoto/unnamed (4).webp" alt="Dakproject" loading="lazy"/></div>
+    <div class="gallery-thumb" onclick="openLightbox(33)"><img src="tnoordenfoto/unnamed (5).webp" alt="Dakproject" loading="lazy"/></div>
+  </div>
+  <button class="gallery-collapse-btn" onclick="closeGallery()">Minder tonen ↑</button>
+</div>
+
+<!-- Lightbox -->
+<div class="lb-overlay" id="lightbox" onclick="closeLightboxOnBg(event)">
+  <button class="lb-close" onclick="closeLightbox()">×</button>
+  <img class="lb-img" id="lb-img" src="" alt="Dakproject"/>
+  <div class="lb-nav">
+    <button class="lb-btn" onclick="lbPrev()">‹</button>
+    <button class="lb-btn" onclick="lbNext()">›</button>
+  </div>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
 
 <!-- ── OVER ONS ───────────────────────────────────── -->
 <section id="over-ons">
@@ -1392,43 +1690,36 @@
 
     <!-- MAP IMAGE -->
     <div class="map-container reveal">
-      <img class="nl-map-img" src="kaart.png" alt="Werkgebied Nederland — alle provincies" />
+      <img class="nl-map-img" src="kaart.png" alt="Werkgebied Nederland" />
     </div>
 
     <!-- INFO -->
     <div class="werkgebied-right reveal" style="transition-delay:0.2s">
       <div class="section-label">Bereikbaarheid</div>
-      <h2 class="section-title">Heel Nederland</h2>
+      <h2 class="section-title">Voornamelijk het Noorden</h2>
       <p class="section-body">
-        Van Groningen tot Maastricht, van Amsterdam tot Enschede — Dakbedrijf 'T Noorden is actief in alle 12 provincies. Met onze mobiele teams zijn wij snel ter plaatse, waar u ook bent.
+        Dakbedrijf 'T Noorden is gespecialiseerd in dakwerkzaamheden in Noord-Nederland. Wij zijn actief in Groningen, Friesland, Drenthe, de regio Zwolle en Utrecht — en alles daartussenin.
       </p>
 
       <div class="provincie-grid">
-        <div class="provincie-item"><span class="provincie-dot"></span>Groningen</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Friesland</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Drenthe</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Overijssel</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Gelderland</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Utrecht</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Noord-Holland</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Zuid-Holland</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Zeeland</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Noord-Brabant</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Limburg</div>
-        <div class="provincie-item"><span class="provincie-dot"></span>Flevoland</div>
+        <div class="provincie-item" style="background:rgba(46,111,212,0.18);border-color:rgba(46,111,212,0.5);color:#a8d4ff;"><span class="provincie-dot"></span>Groningen</div>
+        <div class="provincie-item" style="background:rgba(46,111,212,0.18);border-color:rgba(46,111,212,0.5);color:#a8d4ff;"><span class="provincie-dot"></span>Friesland</div>
+        <div class="provincie-item" style="background:rgba(46,111,212,0.18);border-color:rgba(46,111,212,0.5);color:#a8d4ff;"><span class="provincie-dot"></span>Drenthe</div>
+        <div class="provincie-item" style="background:rgba(46,111,212,0.18);border-color:rgba(46,111,212,0.5);color:#a8d4ff;"><span class="provincie-dot"></span>Regio Zwolle</div>
+        <div class="provincie-item" style="background:rgba(46,111,212,0.18);border-color:rgba(46,111,212,0.5);color:#a8d4ff;"><span class="provincie-dot" style="background:#6ba3ff;box-shadow:0 0 8px rgba(107,163,255,0.9)"></span>Utrecht</div>
       </div>
 
       <div class="coverage-stats">
         <div>
-          <div class="stat-num"><span class="count-num" data-target="12" data-suffix="">0</span></div>
-          <div class="stat-label">Provincies</div>
+          <div class="stat-num"><span class="count-num" data-target="5" data-suffix="">0</span></div>
+          <div class="stat-label">Regio's</div>
         </div>
         <div>
           <div class="stat-num"><span class="count-num" data-target="24" data-suffix="u">0</span></div>
           <div class="stat-label">Bereikbaar</div>
         </div>
         <div>
-          <div class="stat-num"><span class="count-num" data-target="4" data-suffix="u">0</span></div>
+          <div class="stat-num"><span class="count-num" data-target="2" data-suffix="u">0</span></div>
           <div class="stat-label">Max. Reactietijd</div>
         </div>
       </div>
@@ -1604,7 +1895,7 @@
           </div>
           <div class="form-group">
             <label class="form-label">E-mailadres *</label>
-            <input type="email" class="form-control" placeholder="u@email.nl" required />
+            <input type="email" class="form-control" placeholder="uw@email.nl" required />
           </div>
         </div>
         <div class="form-group">
@@ -1655,11 +1946,6 @@
         Uw betrouwbare dakspecialist door heel Nederland. Wij staan garant voor
         vakmanschap, kwaliteit en eerlijke prijzen.
       </p>
-      <div class="footer-social">
-        <a class="social-btn" href="#" aria-label="Facebook">f</a>
-        <a class="social-btn" href="#" aria-label="Instagram">&#9824;</a>
-        <a class="social-btn" href="#" aria-label="LinkedIn">in</a>
-      </div>
     </div>
 
     <div>
@@ -1718,6 +2004,9 @@
 </footer>
 
 <!-- ── FLOATING PHONE ─────────────────────────────── -->
+<a class="float-whatsapp" href="https://wa.me/31612370853" target="_blank" rel="noopener" aria-label="WhatsApp ons">
+  <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
 <a class="float-phone" href="tel:+31501234567" aria-label="Bel ons">
   <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" style="width:24px;height:24px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 9.81 19.79 19.79 0 0 1 1 1.18 2 2 0 0 1 3 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16z"/></svg>
 </a>
@@ -1819,7 +2108,7 @@
           </div>
           <div class="form-group">
             <label class="form-label">E-mailadres *</label>
-            <input type="email" class="form-control" placeholder="u@email.nl" required />
+            <input type="email" class="form-control" placeholder="uw@email.nl" required />
           </div>
         </div>
         <div class="form-group" style="margin-bottom:16px;">
@@ -1856,6 +2145,86 @@
 </div>
 
 <script>
+  // ── LIGHTBOX ──
+  const lbPhotos = [
+    'tnoordenfoto/2025-05-20.webp',
+    'tnoordenfoto/2025-05-20 (1).webp',
+    'tnoordenfoto/2025-05-20 (2).webp',
+    'tnoordenfoto/2025-05-20 (3).webp',
+    'tnoordenfoto/2025-05-20 (4).webp',
+    'tnoordenfoto/2025-05-20 (5).webp',
+    'tnoordenfoto/2025-05-20 (6).webp',
+    'tnoordenfoto/2025-05-20 (7).webp',
+    'tnoordenfoto/2025-05-20 (8).webp',
+    'tnoordenfoto/2025-05-20 (9).webp',
+    'tnoordenfoto/2025-05-20 (10).webp',
+    'tnoordenfoto/2025-05-20 (11).webp',
+    'tnoordenfoto/2025-05-20 (12).webp',
+    'tnoordenfoto/2025-10-07.webp',
+    'tnoordenfoto/2025-10-07 (1).webp',
+    'tnoordenfoto/2025-10-07 (2).webp',
+    'tnoordenfoto/2025-10-07 (3).webp',
+    'tnoordenfoto/2025-10-07 (4).webp',
+    'tnoordenfoto/2025-10-07 (5).webp',
+    'tnoordenfoto/2025-10-07 (6).webp',
+    'tnoordenfoto/2025-10-07 (7).webp',
+    'tnoordenfoto/2025-10-07 (8).webp',
+    'tnoordenfoto/2025-10-07 (9).webp',
+    'tnoordenfoto/2025-10-07 (10).webp',
+    'tnoordenfoto/2025-10-07 (11).webp',
+    'tnoordenfoto/2025-10-07 (12).webp',
+    'tnoordenfoto/2025-10-07 (13).webp',
+    'tnoordenfoto/2026-02-09.webp',
+    'tnoordenfoto/unnamed.webp',
+    'tnoordenfoto/unnamed (1).webp',
+    'tnoordenfoto/unnamed (2).webp',
+    'tnoordenfoto/unnamed (3).webp',
+    'tnoordenfoto/unnamed (4).webp',
+    'tnoordenfoto/unnamed (5).webp'
+  ];
+  let lbIndex = 0;
+  function openGallery(startIndex) {
+    const el = document.getElementById('galleryExpand');
+    el.classList.add('active');
+    setTimeout(function(){ el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+  }
+  function closeGallery() {
+    document.getElementById('galleryExpand').classList.remove('active');
+  }
+  function openLightbox(i) {
+    lbIndex = i;
+    document.getElementById('lb-img').src = lbPhotos[lbIndex];
+    document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbPhotos.length;
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function closeLightboxOnBg(e) {
+    if (e.target === document.getElementById('lightbox')) closeLightbox();
+  }
+  function lbNext() {
+    lbIndex = (lbIndex + 1) % lbPhotos.length;
+    document.getElementById('lb-img').src = lbPhotos[lbIndex];
+    document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbPhotos.length;
+  }
+  function lbPrev() {
+    lbIndex = (lbIndex - 1 + lbPhotos.length) % lbPhotos.length;
+    document.getElementById('lb-img').src = lbPhotos[lbIndex];
+    document.getElementById('lb-counter').textContent = (lbIndex + 1) + ' / ' + lbPhotos.length;
+  }
+  document.addEventListener('keydown', function(e) {
+    if (document.getElementById('lightbox').classList.contains('active')) {
+      if (e.key === 'ArrowRight') lbNext();
+      if (e.key === 'ArrowLeft') lbPrev();
+      if (e.key === 'Escape') closeLightbox();
+    } else if (document.getElementById('galleryModal').classList.contains('active')) {
+      if (e.key === 'Escape') closeGallery();
+    }
+  });
+
   function openPopup() {
     document.getElementById('offertePopup').classList.add('open');
     document.body.style.overflow = 'hidden';

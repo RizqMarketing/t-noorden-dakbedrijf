@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(netstat -ano)",
+      "Bash(start:*)",
+      "Read(//c/Users/mazin/Dakbedrijf 'T Noorden//**)",
+      "Read(//c/Users/mazin/Dakdekkermarketing//**)",
+      "Bash(cp:*)",
+      "Read(//c/Users/mazin/Dakbedrijf 'T Noorden/**)",
+      "Bash(python3 -c ':*)"
+    ]
+  }
+}

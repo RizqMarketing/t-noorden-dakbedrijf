@@ -192,6 +192,18 @@
       .verslag-label { min-width: unset; }
       .verslag-sign { grid-template-columns: 1fr; }
     }
+  
+    /* ─── WHATSAPP WIDGET ─── */
+    .float-whatsapp {
+      position: fixed; bottom: 100px; right: 32px; z-index: 90;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.5);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .float-whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.7); }
   </style>
 </head>
 <body>
@@ -227,143 +239,159 @@
 
   <div class="av-article">
     <h2>Artikel 1 – Definities</h2>
-    <p><strong style="color:var(--white)">Uitvoerder:</strong> Dakbedrijf 'T Noorden, gevestigd te Winthontlaan 200, 3526 KV Utrecht — Telefoon: 085 80 01 570 — E-mail: info@dakbedrijftnoorden.nl</p>
+    <p><strong style="color:var(--white)">Uitvoerder:</strong> Dakbedrijf 'T Noorden, gevestigd te Winthontlaan 200, 3526 KV Utrecht — Telefoonnummer: 085 80 01 570 — E-mailadres: <a href="mailto:info@dakbedrijftnoorden.nl" style="color:var(--ice);">info@dakbedrijftnoorden.nl</a></p>
     <p><strong style="color:var(--white)">Algemene condities:</strong> de condities die hier vermeld staan.</p>
     <p><strong style="color:var(--white)">Defect:</strong> er is sprake van een mankement als het opgeleverde, of een onderdeel ervan, niet de kenmerken bezit die essentieel zijn voor normaal gebruik. Hierbij wordt uitgezonderd situaties waarin de Aannemer op instructie van de Opdrachtgever heeft gehandeld en/of het mankement binnen de risicosfeer van de Opdrachtgever valt.</p>
     <p><strong style="color:var(--white)">Taak:</strong> het uitvoeren van werkzaamheden door de Dakdekker in de ruimste zin van het woord voor de Opdrachtgever.</p>
     <p><strong style="color:var(--white)">Opdrachtgever:</strong> degene met wie de Dakdekker in onderhandeling treedt en/of met wie de Dakdekker een overeenkomst aangaat voor het uitvoeren van de Opdracht, die ofwel een consument is, handelend in de uitoefening van een beroep of bedrijf, of een Vereniging van Eigenaren.</p>
     <p><strong style="color:var(--white)">Overeenkomst:</strong> de afspraak om werkzaamheden uit te voeren door de Dakdekker voor de Opdrachtgever, met inbegrip van, maar niet beperkt tot, werkzaamheden aan daken, dakkapellen, schoorstenen, onderhouds-, renovatie-, herstel- en reparatiewerkzaamheden, vervanging, bedekking, bescherming, inspectie, isolatie, het opsporen en verhelpen van lekkages, coatings, dakpannen, nokvorsten, bitumen dakbedekking, en het bestrijden van overlast door dieren.</p>
     <p><strong style="color:var(--white)">Betrokkenen:</strong> Aannemer en Opdrachtgever gezamenlijk.</p>
-    <p><strong style="color:var(--white)">Tekortkoming:</strong> Een wezenlijke verplichting uit hoofde van de Overeenkomst of gerelateerd aan de Overeenkomst, die door de Aannemer wordt geschonden of verwaarloosd, en waarbij deze schending of nalatigheid niet onmiddellijk kan worden hersteld; of als de schending of nalatigheid wel hersteld kan worden, deze niet binnen dertig (30) dagen is hersteld na een schriftelijke kennisgeving.</p>
+    <p><strong style="color:var(--white)">Tekortkoming:</strong> Een wezenlijke verplichting uit hoofde van de Overeenkomst of gerelateerd aan de Overeenkomst, die door de Aannemer wordt geschonden of verwaarloosd, en waarbij deze schending of nalatigheid niet onmiddellijk kan worden hersteld; of als de schending of nalatigheid wel hersteld kan worden, deze niet binnen dertig (30) dagen is hersteld na een schriftelijke kennisgeving van de Opdrachtgever waarin wordt geëist dat deze schending of nalatigheid wordt hersteld.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 2 – Toepasbaarheid van algemene condities</h2>
     <p>Alle rechtsbetrekkingen tussen de Dakdekker en Opdrachtgever, met inbegrip van verstrekte offertes, aanbiedingen en opdrachtbevestigingen, vallen onder deze Algemene Voorwaarden. Deze voorwaarden zijn ook relevant voor nieuwe, gewijzigde of aangevulde Overeenkomsten, evenals voor rechtsverhoudingen die voortvloeien uit een dergelijke Overeenkomst, zelfs na het beëindigen ervan.</p>
     <p>Afwijkingen van de Algemene Voorwaarden zijn alleen geldig als ze schriftelijk zijn overeengekomen door de betrokken partijen. De toepasbaarheid van eventuele algemene voorwaarden van de Opdrachtgever wordt hierbij uitdrukkelijk uitgesloten.</p>
-    <p>Voor de interpretatie van deze Algemene Voorwaarden wordt een elektronisch bericht (e-mail, WhatsApp, Telegram, Instagram, LinkedIn, enz.) gelijkgesteld aan een schriftelijk bericht. De Dakdekker heeft het recht deze Algemene Voorwaarden eenzijdig te wijzigen. Wijzigingen zijn ook van toepassing op bestaande Overeenkomsten.</p>
-    <p>Als een of meer artikelen van deze Algemene Voorwaarden in strijd zijn met dwingende wettelijke bepalingen, worden de dwingende bepalingen geacht in de plaats te komen van de ongeldige artikelen. Opvallende fouten in offertes, aanbiedingen, opdrachtbevestigingen, facturen of Overeenkomsten binden de Dakdekker niet.</p>
+    <p>Voor de interpretatie van deze Algemene Voorwaarden wordt een elektronisch bericht (e-mail, WhatsApp, Telegram, Instagram, LinkedIn, enz.) gelijkgesteld aan een schriftelijk bericht. De Dakdekker heeft het recht deze Algemene Voorwaarden eenzijdig te wijzigen. Wijzigingen zijn ook van toepassing op bestaande Overeenkomsten. De Dakdekker zal wijzigingen voorafgaand aan de inwerkingtreding schriftelijk bekendmaken. De aangepaste algemene voorwaarden worden van kracht één week na bekendmaking of op een later tijdstip zoals bepaald in de bekendmaking.</p>
+    <p>Als een of meer artikelen van deze Algemene Voorwaarden in strijd zijn met dwingende wettelijke bepalingen, worden de dwingende bepalingen geacht in de plaats te komen van de ongeldige artikelen. Als een artikel geheel of gedeeltelijk ongeldig of niet-afdwingbaar wordt bevonden, blijven de overige artikelen volledig van kracht.</p>
+    <p>Opvallende fouten (zoals schrijffouten, typefouten en/of onjuiste berekeningen) in offertes, aanbiedingen, opdrachtbevestigingen, facturen of Overeenkomsten binden de Dakdekker niet. De Dakdekker zal deze fouten zo spoedig mogelijk corrigeren.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 3 – Oprichting Overeenkomst, aanbiedingen en offertes</h2>
-    <p>Indien de Klant wenst gebruik te maken van de diensten die de Uitvoerder aanbiedt, kan de Opdracht hiertoe schriftelijk of mondeling plaatsvinden, of voortkomen uit een handeling, zoals het aanvangen van de werkzaamheden bij spoedopdrachten. Meestal zal de Klant een prijsopgaaf aanvragen via een formulier op de website.</p>
-    <p>Voorstellen en prijsopgaven van de Uitvoerder blijven hoogstens veertien (14) dagen geldig, tenzij in het aanbod een andere termijn voor aanvaarding is vermeld. Offertes worden verstuurd via administratiesoftware en kunnen door de Klant digitaal worden ondertekend.</p>
-    <p>Alle (op)levertermijnen voor de uit te voeren werkzaamheden zijn richtlijnen. Het overschrijden van dergelijke termijnen geeft de Klant geen recht om de Overeenkomst te ontbinden of schadevergoeding te eisen. De Uitvoerder behoudt zich het recht voor om de Opdracht te weigeren om redenen die voor hem van belang zijn.</p>
+    <p>Indien de Klant wenst gebruik te maken van de diensten die de Uitvoerder aanbiedt, kan de Opdracht hiertoe schriftelijk of mondeling plaatsvinden, of – in voorkomend geval – voortkomen uit een handeling, zoals het aanvangen van de werkzaamheden bij spoedopdrachten. Meestal zal de Klant een prijsopgaaf aanvragen via een formulier op de website: <a href="https://www.dakbedrijftnoorden.nl" style="color:var(--ice);">www.dakbedrijftnoorden.nl</a>.</p>
+    <p>Voorstellen en prijsopgaven van de Uitvoerder blijven hoogstens veertien (14) dagen geldig, tenzij in het aanbod een andere termijn voor aanvaarding is vermeld. Offertes worden verstuurd via administratiesoftware en deze kunnen door de Klant digitaal worden ondertekend. De Overeenkomst komt uitsluitend tot stand door een schriftelijke opdrachtbevestiging van de Uitvoerder aan de Klant, tenzij de Uitvoerder anders beslist.</p>
+    <p>Alle (op)levertermijnen voor de uit te voeren werkzaamheden zoals vermeld in voorstellen, prijsopgaven en opdrachtbevestigingen zijn richtlijnen. Het overschrijden van dergelijke termijnen geeft de Klant geen recht om de Overeenkomst te ontbinden of schadevergoeding te eisen.</p>
+    <p>Voorstellen en prijsopgaven zijn niet automatisch van toepassing op aanvullende dienstverlening, tenzij de Partijen dit schriftelijk overeenkomen. De Uitvoerder behoudt zich het recht voor om de Opdracht te weigeren om redenen die voor hem van belang zijn.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 4 – Uitvoering van de overeenkomst</h2>
     <p>De Overeenkomst wordt door Aannemer naar beste kennis en kunde uitgevoerd, volgens de standaarden van adequaat vakmanschap. De toewijding van Aannemer aan de opdracht is altijd een inzetverplichting en nooit een resultaatsverplichting.</p>
-    <p>Het is de verantwoordelijkheid van Aannemer om Opdrachtgever te informeren over de essentiële materialen en/of hulpstoffen die vereist zijn voor de uitvoering van de Overeenkomst. Alle schade die voortvloeit uit het niet opvolgen van dergelijke waarschuwingen komt voor rekening en risico van Opdrachtgever.</p>
-    <p>Aannemer heeft de bevoegdheid om de werkzaamheden onder de Overeenkomst te laten uitvoeren door assistenten of externe partijen. Opdrachtgever moet ervoor zorgen dat Aannemer toegang heeft tot correcte en alle relevante informatie, dat er veilige werkomstandigheden zijn, en dat alle overeengekomen hulpmiddelen beschikbaar zijn.</p>
-    <p>Opdrachtgever moet zich onthouden van gedrag dat als ongepast, onbetamelijk of misleidend kan worden beschouwd. Artikel 10 (Beëindiging) is van overeenkomstige toepassing.</p>
+    <p>Het is de verantwoordelijkheid van Aannemer om Opdrachtgever te informeren of te attenderen op de essentiële materialen en/of hulpstoffen die vereist zijn voor de uitvoering van de Overeenkomst. Artikel 7:754 BW is overeenkomstig van toepassing, met uitzondering van situaties waarin Opdrachtgever verzuimt om gehoor te geven aan dergelijke waarschuwingen. Alle schade die voortvloeit uit deze situatie komt voor rekening en risico van Opdrachtgever.</p>
+    <p>Aannemer heeft de bevoegdheid om de werkzaamheden onder de Overeenkomst te laten uitvoeren door assistenten of externe partijen. Opdrachtgever moet ervoor zorgen dat Aannemer toegang heeft tot correcte en alle relevante informatie die nodig is voor de uitvoering van de Overeenkomst, dat Aannemer en diens medewerkers onder veilige omstandigheden kunnen werken, en dat alle overeengekomen hulpmiddelen beschikbaar zijn bij aanvang van de werkzaamheden.</p>
+    <p>Als Opdrachtgever de bepalingen in dit artikel schendt waardoor een (gedeelte van de) Overeenkomst niet uitvoerbaar is, valt dit volledig onder de verantwoordelijkheid en het risico van Opdrachtgever. Opdrachtgever vrijwaart Aannemer van alle mogelijke schade die voortkomt uit een dergelijke situatie.</p>
+    <p>Opdrachtgever moet zich onthouden van gedrag dat als ongepast, onbetamelijk of misleidend kan worden beschouwd. Artikel 10 (Beëindiging) is van overeenkomstige toepassing, maar laat de mogelijkheid open voor aanvullende schadevergoeding.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 5 – Afrekening</h2>
-    <p>Aannemer is gerechtigd om voorafgaand aan de aanvang van de Overeenkomst een vooruitbetaling bij Opdrachtgever in rekening te brengen; het bedrag van de vooruitbetaling zal nooit de vijftig procent (50%) van de overeengekomen prijs overschrijden.</p>
-    <p>Na afronding van de Opdracht wordt het eindproduct aan Opdrachtgever overgedragen. Opdrachtgever wordt geacht de factuur voor de voltooide Opdracht onmiddellijk na de oplevering te voldoen, doch in ieder geval binnen één (1) dag na de factuurdatum.</p>
-    <p>Als Opdrachtgever niet binnen de overeengekomen termijn betaalt, verstuurt Aannemer één ingebrekestelling met een termijn van veertien (14) dagen. Bij verzuim zijn naast de hoofdsom ook de wettelijke (handels)rente en buitengerechtelijke incassokosten verschuldigd. Voor elke te late betaling na ingebrekestelling geldt een minimumbedrag van € 40,00.</p>
+    <p>Aannemer is gerechtigd om voorafgaand aan de aanvang van de Overeenkomst een billijke vooruitbetaling bij Opdrachtgever in rekening te brengen; het bedrag van de vooruitbetaling zal nooit de vijftig procent (50%) van de overeengekomen prijs overschrijden.</p>
+    <p>Als Opdrachtgever verzuimt om het volledige vooruit te betalen bedrag (tijdig) te voldoen, behoudt Aannemer het recht om de voortgang van de werkzaamheden op te schorten totdat het overeengekomen gedeelte alsnog is afgerekend. Een vertraagde oplevering kan dan niet tegen Aannemer worden ingebracht.</p>
+    <p>Na afronding van de Opdracht wordt het eindproduct aan Opdrachtgever overgedragen. Opdrachtgever dient de factuur voor de voltooide Opdracht in ieder geval binnen één (1) dag na de factuurdatum te voldoen. In geval van omstandigheden zoals beschreven in artikel 8.2, geldt een betalingstermijn van veertien (14) dagen.</p>
+    <p>Als Opdrachtgever niet binnen de overeengekomen termijn betaalt, verstuurt Aannemer hem één keer een ingebrekestelling waarin Opdrachtgever wordt gesommeerd om de factuur binnen veertien (14) dagen te voldoen. Als Opdrachtgever nog steeds niet betaalt, verkeert hij automatisch in verzuim.</p>
+    <p>Bij verzuim van Opdrachtgever komen alle kosten die Aannemer moet maken voor het innen van de vordering voor rekening van Opdrachtgever. Naast de hoofdsom is Opdrachtgever ook de wettelijke (handels)rente en buitengerechtelijke incassokosten verschuldigd, berekend volgens het Besluit vergoeding voor buitengerechtelijke incassokosten. Voor elke te late betaling na ingebrekestelling geldt een minimumbedrag van € 40,00 (veertig euro).</p>
+    <p>Als Opdrachtgever weigert mee te werken aan de uitvoering van de Overeenkomst, ontslaat dit Opdrachtgever niet van de verplichting om het overeengekomen bedrag aan Aannemer te betalen.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 6 – Tarieven</h2>
-    <p>De genoemde prijzen in offertes, aanbiedingen en facturen van Aannemer zijn exclusief btw en eventuele andere belastingen van overheidswege.</p>
-    <p>Afhankelijk van de te verrichten Opdracht kan het zijn dat Opdrachtgever hulpmiddelen moet aankopen of dat Aannemer deze namens Opdrachtgever aanschaft (zoals pannenliften, grindzuigers, valbeveiliging, transport, hoogwerkers en containers). Deze kosten zijn voor rekening van Opdrachtgever.</p>
-    <p>Aannemer behoudt het recht om tot tien procent (10%) af te wijken van de richtprijs of het geschatte aantal uren. Bij een overschrijding van meer dan 10% dient Aannemer Opdrachtgever tijdig te informeren. In dat geval heeft Opdrachtgever het recht om het meerdere deel te annuleren.</p>
+    <p>De genoemde prijzen in offertes, aanbiedingen, facturen en soortgelijke documenten van Aannemer zijn exclusief belasting toegevoegde waarde (btw) en eventuele andere belastingen van overheidswege.</p>
+    <p>Partijen kunnen een vastgesteld bedrag overeenkomen voor de uitvoering van de Overeenkomst. Indien er geen vast bedrag is overeengekomen, kan het tarief worden bepaald op basis van daadwerkelijk bestede uren (uurtarief), conform de gebruikelijke uurtarieven van Aannemer.</p>
+    <p>Afhankelijk van de te verrichten Opdracht kan het zijn dat Opdrachtgever hulpmiddelen moet aankopen of dat Aannemer deze namens Opdrachtgever aanschaft, zoals pannenliften, grindzuigers, valbeveiliging, transport, hoogwerkers en containers. Deze kosten zijn voor rekening van Opdrachtgever.</p>
+    <p>Aannemer behoudt het recht om tot tien procent (10%) af te wijken van de richtprijs of het geschatte aantal uren. Als de richtprijs meer dan tien procent (10%) wordt overschreden, dient Aannemer Opdrachtgever tijdig te informeren. In dat geval heeft Opdrachtgever het recht om het deel van de Overeenkomst dat boven de richtprijs plus tien procent uitkomt, te annuleren. De oorspronkelijke Overeenkomst blijft geldig.</p>
+    <p>Kosten voor noodzakelijke uitgaven, meerwerk en/of aanpassingen die van invloed zijn op de oorspronkelijke Overeenkomst moeten door Opdrachtgever worden vergoed. Wanneer Opdrachtgever weigert het meerwerk door Aannemer te laten uitvoeren en hierdoor schade ontstaat, wordt dit niet beschouwd als wanprestatie van Aannemer. Opdrachtgever vrijwaart Aannemer van alle schade die hieruit voortvloeit.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 7 – Prijsfluctuatie en verhoging</h2>
-    <p>Aannemer heeft het recht om de tarieven aan te passen op basis van (a) veranderingen in kostenelementen tijdens de looptijd van de Overeenkomst, (b) inflatie volgens het jaarlijks berekende CPI of DPI van het CBS, en (c) binnen drie (3) maanden na het aangaan van de Overeenkomst. In geval van prijsstijgingen binnen drie maanden na het sluiten van de Overeenkomst, hebben consumenten het recht de Overeenkomst op te zeggen.</p>
+    <p>De afgesproken vergoeding op het moment van het aangaan van de Overeenkomst wordt gebaseerd op de prijzen die op dat specifieke tijdstip gelden. Aannemer heeft het recht om de tarieven aan te passen op basis van (a) eventuele veranderingen in kostenelementen die zich voordoen tijdens de looptijd van de Overeenkomst, inclusief belastingen, heffingen of andere financiële consequenties als gevolg van overheidsmaatregelen, (b) inflatie, volgens het jaarlijks berekende consumentenprijsindexcijfer (CPI) of Dienstenprijzen (DPI) door het CBS, afhankelijk van de aard van de Opdracht, en (c) binnen drie (3) maanden na het aangaan van de Overeenkomst.</p>
+    <p>De aangepaste tarieven zijn automatisch en zonder voorafgaande ingebrekestelling verschuldigd. In geval van prijsstijgingen binnen drie maanden na het sluiten van de Overeenkomst, hebben consumenten het recht de Overeenkomst op te zeggen.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 8 – Duur van de Overeenkomst en Opdrachttermijn</h2>
-    <p>De Overeenkomst wordt aangegaan voor de periode zoals mondeling of schriftelijk overeengekomen, tenzij de aard van de overeenkomst anders vereist.</p>
-    <p>Aannemer biedt ook diensten aan in de vorm van een abonnement, gericht op dakinspectie en klein onderhoud. Het abonnement wordt aangegaan voor een periode van 12 maanden, zonder mogelijkheid tot tussentijdse opzegging. Na genoemde periode wordt het abonnement automatisch stilzwijgend verlengd voor onbepaalde tijd, met een opzegtermijn van maximaal één maand.</p>
+    <p>De Overeenkomst tussen de Partijen wordt aangegaan voor de periode zoals mondeling of schriftelijk overeengekomen, tenzij de aard van de overeenkomst anders vereist.</p>
+    <p>Aannemer biedt ook diensten aan in de vorm van een abonnement, gericht op dakinspectie en klein onderhoud. Voor dit abonnement wordt een offerte verstrekt die door Opdrachtgever moet worden aanvaard. Het abonnement wordt aangegaan voor een periode van 12 maanden, zonder mogelijkheid tot tussentijdse opzegging. Na genoemde periode wordt het abonnement automatisch stilzwijgend verlengd voor onbepaalde tijd. Na de initiële termijn kan het abonnement schriftelijk worden beëindigd, met een opzegtermijn van maximaal één maand.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 9 – Aanpassing van de Overeenkomst</h2>
-    <p>Een wijziging of aanvulling van de Overeenkomst kan gevolgen hebben voor de voltooiingstijd van de Opdracht en/of financiële en/of kwalitatieve aspecten. Wanneer Aannemer dit vermoedt, zal hij Opdrachtgever tijdig en schriftelijk op de hoogte stellen. Aannemer zal pas na schriftelijke goedkeuring van Opdrachtgever beginnen met de aanvullende werkzaamheden.</p>
+    <p>Een wijziging of aanvulling van de Overeenkomst kan gevolgen hebben voor de voltooiingstijd van de Opdracht en/of financiële en/of kwalitatieve aspecten met zich meebrengen. Wanneer Aannemer dit vermoedt, zal hij Opdrachtgever tijdig en schriftelijk op de hoogte stellen, inclusief een indicatie van de mate waarin de wijziging of aanvulling de overeengekomen prijs en opleveringsdatum zal overschrijden. Aannemer zal pas na schriftelijke goedkeuring van Opdrachtgever beginnen met de aanvullende werkzaamheden. Artikel 6 van de Algemene Voorwaarden is hierop van toepassing.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 10 – Beëindiging van de Overeenkomst</h2>
-    <p>Opdrachtgever heeft de vrijheid om de Overeenkomst met Aannemer op elk gewenst moment schriftelijk op te zeggen, tenzij er schriftelijk anders is overeengekomen.</p>
-    <p>Indien Opdrachtgever de Overeenkomst opzegt voordat Aannemer is aangevangen, dient Opdrachtgever dertig procent (30%) van het overeengekomen aannemingsbedrag te voldoen als compensatie.</p>
-    <p>Wanneer Opdrachtgever de Overeenkomst opzegt nadat Aannemer reeds gestart is, is Opdrachtgever verplicht het bedrag te betalen dat overeenkomt met de reeds uitgevoerde werkzaamheden, vermeerderd met 30% als vergoeding voor het positieve contractbelang.</p>
-    <p>Aannemer behoudt het recht om de Overeenkomst te beëindigen om gewichtige redenen, zoals het niet nakomen van afspraken, onaanvaardbaar gedrag van Opdrachtgever, of als de veiligheid van medewerkers niet kan worden gegarandeerd.</p>
+    <p>Opdrachtgever heeft de vrijheid om de Overeenkomst met Aannemer op elk gewenst moment schriftelijk op te zeggen, tenzij er schriftelijk anders is overeengekomen tussen de Partijen.</p>
+    <p>Indien Opdrachtgever de Overeenkomst opzegt en Aannemer heeft nog niet aangevangen met de uitvoering ervan, dient Opdrachtgever dertig procent (30%) van het overeengekomen aannemingsbedrag te voldoen aan Aannemer, als compensatie voor het positieve contractbelang dat Aannemer zou hebben genoten indien de Overeenkomst voltooid had kunnen worden.</p>
+    <p>Wanneer Opdrachtgever de Overeenkomst opzegt op het moment dat Aannemer reeds is gestart met de uitvoering, is Opdrachtgever verplicht het bedrag te betalen dat overeenkomt met de reeds uitgevoerde werkzaamheden, vermeerderd met dertig procent (30%) als vergoeding voor voornoemd positief contractbelang.</p>
+    <p>Aannemer behoudt het recht om de Overeenkomst op elk moment te beëindigen om gewichtige redenen, bijvoorbeeld als Opdrachtgever relevante informatie niet, niet tijdig of inadequaat verstrekt, waardoor Aannemer de Overeenkomst niet naar behoren kan vervullen. Opzegging door Aannemer is ook mogelijk in geval van het niet nakomen van afspraken door Opdrachtgever, onaanvaardbaar gedrag van Opdrachtgever jegens Aannemer of diens werknemers, of indien de veiligheid van genoemde personen niet kan worden gegarandeerd.</p>
+    <p>Aannemer kan bovendien de Overeenkomst onmiddellijk ontbinden in geval van (aangevraagd) faillissement, (voorlopige) surseance van betaling, liquidatie, beslag op zaken van Opdrachtgever, of opgelegde boetes door overheidsinstanties. Alle vorderingen van Aannemer op Opdrachtgever worden in dat geval onmiddellijk opeisbaar.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 11 – Overmachtsclausule</h2>
-    <p>Als overmacht wordt beschouwd elke situatie die volledig of gedeeltelijk de nakoming van Aannemers verplichtingen verhindert, waaronder: wanprestatie van derden, overheidsmaatregelen, technische storingen, stakingen, weersomstandigheden, lichamelijk letsel of arbeidsongeschiktheid, natuurrampen, en oorlog of terrorisme.</p>
-    <p>Na een overmachtsituatie die dertig (30) kalenderdagen heeft geduurd, hebben de Partijen het recht om het niet-uitvoerbare deel van de Overeenkomst schriftelijk te ontbinden. Aannemer is niet aansprakelijk voor enige vorm van schade in geval van overmacht.</p>
+    <p>Als overmacht wordt beschouwd elke situatie die volledig of gedeeltelijk de nakoming van Aannemers verplichtingen jegens Opdrachtgever verhindert, of waarbij redelijkerwijs niet kan worden verwacht dat Aannemer aan zijn verplichtingen kan voldoen als gevolg van: (a) wanprestatie of tijdelijke dan wel permanente niet-nakoming van derden, (b) overheidsmaatregelen die de uitvoering belemmeren of beperken, (c) technische storingen of onderbrekingen in nutsvoorzieningen, (d) stakingen en werkonderbrekingen, (e) weersomstandigheden, (f) lichamelijk letsel of arbeidsongeschiktheid van Aannemer, zijn werknemers of hulppersonen, (g) natuurrampen of kernrampen, en/of (h) oorlog en terrorisme of de dreiging daarvan.</p>
+    <p>Indien zich een overmachtsituatie voordoet, worden de verplichtingen van Aannemer gedurende die periode opgeschort. Aannemer zal trachten de Opdracht te verplaatsen naar een nader te bepalen datum. Na een overmachtsituatie die dertig (30) kalenderdagen heeft geduurd, hebben de Partijen het recht om het niet-uitvoerbare deel van de Overeenkomst schriftelijk te ontbinden. Aannemer is niet aansprakelijk voor enige vorm van schade in geval van overmacht.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 12 – Compensatie en tijdelijke opschorting</h2>
-    <p>Opdrachtgever verzaakt aan zijn recht om een schuld aan Aannemer te vereffenen met een claim op Aannemer en om de uitvoering van enige voortkomende verbintenis op te schorten. Consumenten behouden het recht op compensatie en opschorting voor zover dit recht krachtens de wet aan hen is toegekend.</p>
+    <p>Opdrachtgever verzaakt aan zijn recht om een schuld aan Aannemer te vereffenen met een claim op Aannemer en om de uitvoering van enige voortkomende verbintenis uit een Overeenkomst op te schorten. Consumenten behouden het recht op compensatie en op tijdelijke opschorting voor zover dit recht krachtens de wet in specifieke situaties aan hen is toegekend.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 13 – Overdracht van privileges en plichten</h2>
-    <p>De privileges en plichten die resulteren uit een gesloten Overeenkomst kunnen niet door Opdrachtgever worden gedelegeerd aan een derde zonder de voorafgaande schriftelijke instemming van Aannemer.</p>
+    <p>De privileges en plichten die resulteren uit een gesloten Overeenkomst tussen Partijen kunnen niet door Opdrachtgever worden gedelegeerd aan een derde zonder de voorafgaande schriftelijke instemming van Aannemer.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 14 – Voltooiing</h2>
-    <p>Na de afronding van de Taak overdraagt Aannemer het voltooide werk aan Opdrachtgever. Bij deze oplevering kan Aannemer een overdrachtsrapport verstrekken. Opdrachtgever moet onmiddellijk een inspectie uitvoeren bij oplevering. Oplevering kan ook mondeling plaatsvinden.</p>
-    <p>Tijdens de oplevering heeft Opdrachtgever de optie om de Taak te (i) accepteren, (ii) onder voorbehoud te accepteren, of (iii) onder aanduiding van gebreken te weigeren. De Taak wordt geacht te zijn opgeleverd indien betaling is voltooid, het werk in gebruik is genomen, of Opdrachtgever niet binnen een redelijke termijn reageert op de oplevering.</p>
-    <p>Aannemer is aansprakelijk voor verborgen Defecten tot twee jaar na de oplevering. Daarna vervalt het recht van Opdrachtgever om Aannemer aansprakelijk te stellen.</p>
+    <p>Na de afronding van de Taak overdraagt Aannemer het voltooide werk aan Opdrachtgever. Bij deze oplevering kan Aannemer een overdrachtsrapport verstrekken. Nadat Opdrachtgever de mogelijkheid heeft gehad om een grondige inspectie uit te voeren, ondertekenen Partijen het rapport. Opdrachtgever moet onmiddellijk een inspectie uitvoeren bij oplevering. Oplevering kan ook mondeling plaatsvinden.</p>
+    <p>Tijdens de oplevering heeft Opdrachtgever de optie om de Taak te: (i) accepteren; (ii) onder (gemotiveerd) voorbehoud te accepteren; of (iii) onder (gemotiveerde) aanduiding van gebreken te weigeren. De Taak wordt geacht te zijn opgeleverd en stilzwijgend aanvaard indien (i) betaling van de overeengekomen prijs is voltooid; (ii) het opgeleverde werk in gebruik wordt genomen; (iii) Opdrachtgever Aannemer niet binnen een redelijke termijn informeert over het resultaat van de inspectie; of (iv) bij afwezigheid van een inspectie terwijl Opdrachtgever wel de kans heeft gehad deze uit te voeren.</p>
+    <p>Aannemer wordt vrijgesteld van aansprakelijkheid voor Defecten die Opdrachtgever redelijkerwijs had moeten ontdekken bij oplevering, of als Opdrachtgever al vóór oplevering op de hoogte was van een Defect maar hier niet tegen optrad. In dat geval gaat het risico over op Opdrachtgever.</p>
+    <p>Defecten vóór de oplevering moeten door Aannemer worden hersteld als en voor zover deze Defecten binnen de risicosfeer van Aannemer vallen. Aannemer is aansprakelijk voor verborgen Defecten tot twee jaar na de oplevering. Daarna vervalt het recht van Opdrachtgever om Aannemer aansprakelijk te stellen.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 15 – Garantie</h2>
-    <p>De garantie vervalt wanneer: (i) regelmatig reinigen van de dakbedekking wordt verwaarloosd; (ii) preventief onderhoud niet wordt uitgevoerd; (iii) externe partijen worden ingeschakeld voor werkzaamheden aan de dakbedekking; (iv) lekkage optreedt als gevolg van onzorgvuldig gebruik; (v) schade ontstaat door lekkage; (vi) de onderliggende bouwkundige constructie niet naar behoren functioneert; (vii) samenhang van de ondergrond verloren gaat; (viii) de bestemming van het dak wijzigt; of (ix) bij natuurrampen zoals stormen met windkracht 9 of hoger op de schaal van Beaufort.</p>
-    <p>De garantie kan alleen worden benut als Opdrachtgever bij het melden van de schade het originele garantiecertificaat kan presenteren.</p>
+    <p>De garantie vervalt wanneer: (i) het regelmatig reinigen van de dakbedekking wordt verwaarloosd; (ii) preventief onderhoud aan de dakbedekking niet wordt uitgevoerd; (iii) Opdrachtgever externe partijen inschakelt voor werkzaamheden aan de dakbedekking; (iv) lekkage optreedt als gevolg van onzorgvuldig of ondeskundig gebruik; (v) schade ontstaat door lekkage; (vi) de onderliggende bouwkundige constructie niet naar behoren functioneert; (vii) samenhang van de ondergrond verloren gaat; (viii) de bestemming van het dak wijzigt; of (ix) bij natuurrampen zoals aardbevingen, stormen en blikseminslagen. Storm wordt hier begrepen als een weersomstandigheid waarbij de windsnelheid hoger is dan 20,8 meter per seconde (windkracht 9 of meer op de schaal van Beaufort).</p>
+    <p>De garantie kan alleen worden benut als Opdrachtgever bij het melden van de schade het originele garantiecertificaat (of een duidelijke kopie ervan) kan presenteren.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 16 – Klachtplicht</h2>
-    <p>Opdrachtgever moet klachten over Gebreken schriftelijk kenbaar maken aan Aannemer. Zichtbare Gebreken moeten direct bij oplevering worden gemeld. Voor niet-zichtbare Gebreken geldt een termijn van één (1) maand na ontdekking; voor consumenten anderhalve (1,5) maand.</p>
-    <p>Klachten kunnen worden gericht aan: <a href="mailto:info@dakbedrijftnoorden.nl" style="color:var(--ice);">info@dakbedrijftnoorden.nl</a>. De omschrijving moet zo gedetailleerd mogelijk zijn en onderbouwd met bewijsstukken. De vordering wegens gebrekkige prestaties kan tot één (1) jaar na het melden van de klacht juridisch worden ingesteld.</p>
+    <p>Opdrachtgever moet klachten over Gebreken met betrekking tot de Overeenkomst schriftelijk kenbaar maken aan Aannemer. Zichtbare Gebreken moeten direct bij oplevering van de Opdracht aan Aannemer worden gemeld. Voor niet-zichtbare Gebreken die redelijkerwijs niet bij oplevering ontdekt hadden kunnen worden, is de termijn één (1) maand na ontdekking; voor consumenten anderhalve (1,5) maand.</p>
+    <p>Klachten over Gebreken moeten schriftelijk worden gericht aan: <a href="mailto:info@dakbedrijftnoorden.nl" style="color:var(--ice);">info@dakbedrijftnoorden.nl</a>. De omschrijving van de klacht moet zo gedetailleerd mogelijk zijn en onderbouwd met bewijsstukken. Partijen zullen vervolgens afspreken hoe en op welke wijze de klacht kan worden opgelost.</p>
+    <p>In geval van een terechte klacht zal Aannemer eventuele Gebreken corrigeren binnen een redelijke termijn. Aannemer is echter niet aansprakelijk voor de geleden schade als gevolg van deze Gebreken, behoudens de gevallen bij wet voorzien. De vordering wegens gebrekkige prestaties kan tot één (1) jaar na het melden van de klacht juridisch worden ingesteld. Daarna vervalt dit recht.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 17 – Verzekering</h2>
-    <p>Indien Aannemer werkzaamheden verricht op de locatie van Opdrachtgever, is de Opdrachtgever verplicht de zaken die nodig zijn voor de uitvoering van de Overeenkomst adequaat te verzekeren tegen onder andere brand, ontploffings- en waterschade, en diefstal.</p>
+    <p>Indien en voor zover Aannemer werkzaamheden verricht op de locatie van Opdrachtgever, dan wel een door Opdrachtgever aangewezen plek, is de Opdrachtgever verplicht de zaken die nodig zijn voor de uitvoering van de Overeenkomst adequaat te verzekeren en verzekerd te houden tegen onder andere, maar niet uitsluitend, brand, ontploffings- en waterschade, evenals diefstal.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 18 – Aansprakelijkheid schade</h2>
-    <p>De aansprakelijkheid van Aannemer voor directe schade is beperkt tot het bedrag waarvoor Aannemer verzekerd is. Als geen uitkering onder de verzekering plaatsvindt, is de aansprakelijkheid beperkt tot maximaal € 1.000,00 inclusief btw per incident.</p>
-    <p>Aannemer is niet aansprakelijk voor indirecte schade, waaronder gederfde winst, gederfde omzet, gemiste kansen of schade door bedrijfsstagnatie. Iedere vordering tot schadevergoeding vervalt één (1) jaar na de dag waarop de gebeurtenis is ontdekt of redelijkerwijs had moeten worden ontdekt.</p>
+    <p>Opdrachtgever erkent enkel aansprakelijkheid in het geval van een Gebrek of een toerekenbare onrechtmatige handeling. De aansprakelijkheid van Aannemer voor directe schade, die rechtstreeks voortvloeit uit het Gebrek waaruit de aansprakelijkheid voortkomt, is beperkt tot het bedrag of de bedragen waarvoor Aannemer verzekerd is, vermeerderd met het eigen risico van Aannemer in verband met die verzekering.</p>
+    <p>Als om welke reden dan ook geen uitkering onder de genoemde verzekering plaatsvindt, is de aansprakelijkheid van Aannemer per incident of reeks van gebeurtenissen met een gemeenschappelijke oorzaak, beperkt tot maximaal € 1.000,00 inclusief btw. Aannemer is niet aansprakelijk conform artikel 7:754 BW laatste alinea indien Opdrachtgever de aanwijzingen van Aannemer niet opvolgt nadat Aannemer Opdrachtgever heeft geattendeerd op eventuele gevolgen.</p>
+    <p>Onder directe schade wordt uitsluitend verstaan: de redelijke kosten voor het vaststellen van de oorzaak en omvang van de schade; de eventuele redelijke kosten om de ondeugdelijke prestatie van Aannemer aan de Overeenkomst te laten voldoen; en redelijke kosten ter voorkoming of beperking van schade. De aansprakelijkheid van Aannemer voor indirecte schade (waaronder gederfde winst, gederfde omzet, gemiste kansen en schade door bedrijfsstagnatie) is nadrukkelijk uitgesloten.</p>
+    <p>Aannemer is niet aansprakelijk voor schade voortkomend uit onjuiste en/of onvolledige gegevens verstrekt door of namens Opdrachtgever, noch voor schade veroorzaakt door door Aannemer ingeschakelde hulppersonen. Iedere vordering tot schadevergoeding op Aannemer vervalt één (1) jaar na de dag waarop de gebeurtenis is ontdekt of redelijkerwijs had moeten worden ontdekt. De beperkingen van aansprakelijkheid zijn niet van toepassing in geval de schade het gevolg is van opzet of bewuste roekeloosheid van Aannemer of zijn werknemers.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 19 – Verantwoordelijkheid opdrachtgever</h2>
-    <p>Wanneer meerdere personen een Opdracht verstrekken aan Aannemer, zijn zij gezamenlijk aansprakelijk. Indien een Opdracht wordt gegeven door een natuurlijke persoon namens een rechtspersoon, kan deze natuurlijke persoon tevens persoonlijk Opdrachtgever zijn en bij wanbetaling persoonlijk aansprakelijk worden gesteld.</p>
+    <p>Wanneer meerdere personen een Opdracht verstrekken aan Aannemer als onderdeel van de Overeenkomst, zijn zij gezamenlijk aansprakelijk voor de bedragen die Aannemer verschuldigd zijn.</p>
+    <p>Indien een dergelijke Opdracht direct of indirect wordt gegeven door een natuurlijke persoon namens een rechtspersoon, kan deze natuurlijke persoon tevens persoonlijk de Opdrachtgever zijn indien hij wordt beschouwd als de (mede)beleidsbepaler van de rechtspersoon. Bij wanbetaling door de rechtspersoon is de natuurlijke persoon persoonlijk verantwoordelijk voor de betaling van de factuur.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 20 – Vrijwaring</h2>
-    <p>Opdrachtgever vrijwaart Aannemer tegen alle claims van derden die verband houden met de uitgevoerde werkzaamheden. Als Opdrachtgever door derden wordt aangesproken, moet Opdrachtgever Aannemer juridisch en anderszins bijstaan. Alle kosten en schade die hieruit voortvloeien, komen volledig voor rekening en risico van Opdrachtgever.</p>
+    <p>Opdrachtgever vrijwaart Aannemer tegen alle claims van derden die verband houden met de werkzaamheden die Aannemer heeft uitgevoerd in het kader van de Overeenkomst. Als Opdrachtgever door derden wordt aangesproken vanwege deze werkzaamheden, moet Opdrachtgever Aannemer juridisch en anderszins bijstaan, zowel binnen als buiten de rechtszaal.</p>
+    <p>Als Opdrachtgever verzuimt passende maatregelen te nemen, is Aannemer, zonder voorafgaande ingebrekestelling, gerechtigd om zelf maatregelen te nemen. Alle kosten en schade die daaruit voortvloeien, komen volledig voor rekening en risico van Opdrachtgever.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 21 – Voorbehoud van eigendom</h2>
-    <p>Aannemer blijft eigenaar van het geleverde/geïnstalleerde werk, inclusief materialen en hulpmiddelen, totdat Opdrachtgever heeft voldaan aan alle betalingsverplichtingen. Het werk valt onder het risico van Opdrachtgever vanaf het moment van feitelijke levering.</p>
-    <p>Aannemer behoudt zich het recht voor om het werk te verwijderen als Opdrachtgever niet of niet tijdig voldoet aan zijn betalingsverplichtingen.</p>
+    <p>Aannemer blijft eigenaar van het geleverde/geïnstalleerde/geplaatste werk, inclusief materialen en hulpmiddelen (het "Werk"), totdat Opdrachtgever heeft voldaan aan alle betalingsverplichtingen jegens Aannemer uit hoofde van enige gesloten Overeenkomst, inclusief vorderingen met betrekking tot aanvullende werkzaamheden en tekortkomingen, evenals vorderingen met betrekking tot schadevergoeding. Het Werk valt onder het risico van Opdrachtgever vanaf het moment van feitelijke levering.</p>
+    <p>Het eigendomsvoorbehoud geldt ook voor alle eerdere en latere overeenkomsten tussen Partijen. Aannemer behoudt zich het recht voor om het Werk te verwijderen als Opdrachtgever niet of niet tijdig voldoet aan voornoemde betalingsverplichtingen.</p>
   </div>
 
   <div class="av-article">
     <h2>Artikel 22 – Verwerking van persoonsgegevens</h2>
-    <p>Aannemer verwerkt persoonsgegevens van Opdrachtgever (naam, adres, e-mail, telefoonnummer) uitsluitend om de Overeenkomst te kunnen uitvoeren, in overeenstemming met de AVG. Er worden niet meer gegevens verwerkt dan strikt noodzakelijk.</p>
-    <p>Opdrachtgever heeft het recht op inzage, vergetelheid, rectificatie, dataportabiliteit en beperking van de verwerking. Verzoeken kunnen worden ingediend via e-mail aan <a href="mailto:info@dakbedrijftnoorden.nl" style="color:var(--ice);">info@dakbedrijftnoorden.nl</a>.</p>
+    <p>Aannemer voert de verwerking van persoonsinformatie van Opdrachtgever uit om de Overeenkomst tot uitvoering te kunnen brengen. De gegevens die Aannemer verwerkt, omvatten onder andere de naam, het (e-mail)adres en telefoonnummer van Opdrachtgever. Er worden niet meer gegevens verwerkt dan strikt noodzakelijk. De verwerking van persoonsgegevens door Aannemer zal plaatsvinden in overeenstemming met de Algemene Verordening Gegevensbescherming (AVG) en relevante wetgeving.</p>
+    <p>Opdrachtgever heeft het recht op inzage, vergetelheid, rectificatie en aanvulling, dataportabiliteit, beperking van de verwerking van persoonsgegevens en het recht om bezwaar te maken tegen de verwerking van gegevens. Verzoeken kunnen uitsluitend worden ingediend per e-mail aan <a href="mailto:info@dakbedrijftnoorden.nl" style="color:var(--ice);">info@dakbedrijftnoorden.nl</a>. Aannemer bewaart de persoonsgegevens niet langer dan strikt noodzakelijk volgens de wettelijke bewaartermijnen.</p>
   </div>
 
   <div class="av-article">
@@ -373,8 +401,8 @@
 
   <div class="av-article">
     <h2>Artikel 24 – Rechtsgebied en bevoegde rechter</h2>
-    <p>Het Nederlands recht is exclusief van toepassing op elke Overeenkomst tussen partijen. Het Weens Koopverdrag is uitdrukkelijk uitgesloten.</p>
-    <p>Alle geschillen die voortvloeien uit of verband houden met de Overeenkomst zullen in eerste instantie worden voorgelegd aan de bevoegde rechter bij de Rechtbank Amsterdam, tenzij de wet dwingend anders voorschrijft. Partijen hebben tevens de mogelijkheid om geschillen voor te leggen aan een van toepassing zijnde geschillencommissie.</p>
+    <p>Het Nederlands recht is exclusief van toepassing op elke Overeenkomst tussen partijen of enig ander relevant document, evenals op alle rechten en verplichtingen die daaruit voortvloeien. Het Weens Koopverdrag is uitdrukkelijk uitgesloten.</p>
+    <p>Alle geschillen of vorderingen die voortvloeien uit of verband houden met de Overeenkomst zullen in eerste instantie worden voorgelegd aan de bevoegde rechter bij de Rechtbank Amsterdam, tenzij de wet dwingend anders voorschrijft. Partijen hebben tevens de mogelijkheid om geschillen voor te leggen aan een geschillencommissie die van toepassing is op hun specifieke situatie.</p>
   </div>
 
   <!-- OPLEVERINGSVERSLAG -->

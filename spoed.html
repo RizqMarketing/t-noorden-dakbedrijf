@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spoed Dakdienst – Dakbedrijf 'T Noorden</title>
+  <meta name="description" content="24/7 spoedservice voor dakschade in Noord-Nederland. Lekkage, stormschade of noodreparatie? Wij zijn er snel. Bel 085 80 01 570." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&family=Bitter:ital,wght@0,400;0,600;0,700;1,400&family=Barlow+Condensed:wght@400;600;700;900&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy-deep:    #060e1e;
+      --navy-mid:     #0d1f3c;
+      --navy-light:   #1a3660;
+      --blue-vivid:   #1e4fa3;
+      --blue-accent:  #2e6fd4;
+      --silver:       #c8d8ec;
+      --silver-light: #e8f0fa;
+      --white:        #f5f9ff;
+      --steel:        #7a9ab8;
+      --ice:          #a8cce4;
+      --gold-accent:  #d4a843;
+      --text-body:    #b8cfe0;
+      --text-muted:   #6a8aa8;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Bitter', Georgia, serif; background: var(--navy-deep); color: var(--text-body); overflow-x: hidden; }
+
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--navy-deep); }
+    ::-webkit-scrollbar-thumb { background: var(--blue-accent); border-radius: 3px; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 5%; height: 88px;
+      background: rgba(6,14,30,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(46,111,212,0.25);
+    }
+    .nav-logo { display: flex; align-items: center; gap: 14px; text-decoration: none; }
+    .nav-logo img { height: 110px; width: auto; filter: drop-shadow(0 0 8px rgba(46,111,212,0.5)); }
+    .nav-logo-text {
+      font-family: 'Fjalla One', sans-serif; font-size: 1rem;
+      letter-spacing: 0.08em; color: var(--silver-light); line-height: 1.2; text-transform: uppercase;
+    }
+    .nav-logo-text span { display: block; font-size: 0.65rem; letter-spacing: 0.2em; color: var(--steel); }
+    .nav-back {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--steel); text-decoration: none;
+      display: flex; align-items: center; gap: 8px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--white); }
+    .nav-cta {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 10px 24px; background: var(--blue-accent); color: var(--white);
+      border: none; border-radius: 2px; text-decoration: none; transition: background 0.25s;
+    }
+    .nav-cta:hover { background: #3a7de0; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 500px; gap: 32px;
+      align-items: center;
+      padding: 120px 8% 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 60% 40%, rgba(30,79,163,0.22) 0%, transparent 70%),
+        linear-gradient(160deg, #060e1e 0%, #0d1f3c 45%, #0a1628 100%);
+    }
+    .hero-grid {
+      position: absolute; inset: 0; z-index: 0;
+      background-image:
+        linear-gradient(rgba(46,111,212,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46,111,212,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridDrift 20s linear infinite;
+    }
+    @keyframes gridDrift { 0% { transform: translateY(0); } 100% { transform: translateY(60px); } }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase;
+      color: var(--ice); border: 1px solid rgba(168,204,228,0.3);
+      padding: 6px 16px; border-radius: 2px; margin-bottom: 28px;
+      animation: fadeUp 0.8s ease both;
+    }
+    .hero-title {
+      font-family: 'Fjalla One', sans-serif;
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      line-height: 1.0; color: var(--white); letter-spacing: -0.01em;
+      margin-bottom: 8px;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .hero-title em {
+      font-style: normal;
+      background: linear-gradient(90deg, #4a90e2, #a8d4ff);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+    }
+    .hero-subtitle {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.9rem); font-weight: 400;
+      color: var(--ice); letter-spacing: 0.08em; text-transform: uppercase;
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s 0.2s ease both;
+    }
+    .hero-divider {
+      width: 60px; height: 3px;
+      background: linear-gradient(90deg, var(--blue-accent), var(--ice));
+      margin-bottom: 28px;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+    .hero-desc {
+      font-size: 1.05rem; line-height: 1.8; color: var(--text-body);
+      max-width: 540px; margin-bottom: 40px;
+      animation: fadeUp 0.8s 0.4s ease both;
+    }
+    .hero-checks {
+      display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px;
+      animation: fadeUp 0.8s 0.45s ease both;
+    }
+    .hero-check {
+      display: flex; align-items: center; gap: 12px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem; letter-spacing: 0.08em; color: var(--silver);
+    }
+    .hero-check svg { flex-shrink: 0; color: var(--blue-accent); }
+    .hero-actions {
+      display: flex; gap: 16px; flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.5s ease both;
+    }
+
+    /* ── FORM CARD ── */
+    .hero-form-card {
+      position: relative; z-index: 2;
+      background: rgba(10,22,46,0.88);
+      backdrop-filter: blur(24px);
+      border: 1px solid rgba(46,111,212,0.28);
+      border-radius: 4px; padding: 36px 32px 32px;
+      box-shadow: 0 0 60px rgba(46,111,212,0.12), inset 0 1px 0 rgba(255,255,255,0.05);
+      animation: fadeUp 0.8s 0.7s ease both;
+    }
+    .hero-form-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue-accent), var(--ice), var(--blue-accent));
+      border-radius: 4px 4px 0 0;
+    }
+    .hf-title { font-family: 'Fjalla One', sans-serif; font-size: 1.5rem; color: var(--white); margin-bottom: 4px; }
+    .hf-sub {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.78rem; letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--steel); margin-bottom: 24px;
+    }
+    .hf-group { margin-bottom: 14px; }
+    .hf-label {
+      display: block;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--steel); margin-bottom: 6px;
+    }
+    .hf-input, .hf-select, .hf-textarea {
+      width: 100%; background: rgba(6,14,30,0.6);
+      border: 1px solid rgba(46,111,212,0.22); border-radius: 2px;
+      color: var(--silver-light); font-family: 'Bitter', serif; font-size: 0.88rem;
+      padding: 10px 14px; outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s; -webkit-appearance: none;
+    }
+    .hf-input::placeholder, .hf-textarea::placeholder { color: var(--text-muted); }
+    .hf-input:focus, .hf-select:focus, .hf-textarea:focus {
+      border-color: rgba(46,111,212,0.7); box-shadow: 0 0 0 3px rgba(46,111,212,0.1);
+    }
+    .hf-select option { background: #0d1f3c; }
+    .hf-textarea { resize: none; line-height: 1.5; }
+    .hf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .hf-btn {
+      width: 100%; margin-top: 18px;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase;
+      padding: 14px 24px; background: var(--blue-accent); color: var(--white);
+      border: none; border-radius: 2px; cursor: pointer; transition: all 0.25s;
+      position: relative; overflow: hidden;
+    }
+    .hf-btn::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      transform: translateX(-100%); transition: transform 0.5s;
+    }
+    .hf-btn:hover { background: #3a7de0; transform: translateY(-2px); box-shadow: 0 6px 24px rgba(46,111,212,0.4); }
+    .hf-btn:hover::before { transform: translateX(100%); }
+    .hf-note {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.7rem; letter-spacing: 0.1em;
+      color: var(--text-muted); margin-top: 10px; text-align: center;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── TRUST STRIP ── */
+    .trust-strip {
+      background: var(--navy-mid);
+      border-top: 1px solid rgba(46,111,212,0.2);
+      border-bottom: 1px solid rgba(46,111,212,0.2);
+      padding: 18px 0; overflow: hidden; display: flex; align-items: center;
+    }
+    .trust-track {
+      display: flex; align-items: center; gap: 48px;
+      animation: trustScroll 22s linear infinite; white-space: nowrap; flex-shrink: 0;
+    }
+    @keyframes trustScroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .trust-item {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+      color: var(--steel); display: flex; align-items: center; gap: 10px; flex-shrink: 0;
+    }
+    .trust-item svg { color: var(--blue-accent); }
+
+    /* ── SECTIONS ── */
+    section { padding: 100px 8%; }
+
+    .section-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--blue-accent); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .section-label::before { content: ''; display: inline-block; width: 32px; height: 2px; background: var(--blue-accent); }
+    .section-title {
+      font-family: 'Fjalla One', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem); color: var(--white); line-height: 1.1; margin-bottom: 20px;
+    }
+    .section-body { font-size: 1rem; line-height: 1.8; color: var(--text-body); max-width: 580px; }
+
+    /* reveal animation */
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.65s ease, transform 0.65s ease; }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── LIGHT SECTIONS ── */
+    .section-light {
+      background: #f7fafc !important;
+    }
+    .section-light .section-label { color: var(--blue-vivid); }
+    .section-light .section-label::before { background: var(--blue-vivid); }
+    .section-light .section-title { color: #0d1f3c; }
+    .section-light .section-body { color: #4a5568; }
+    .section-light .sign-title { color: #0d1f3c; }
+    .section-light .sign-desc { color: #4a6080; }
+    .section-light .sign-num { color: rgba(30,79,163,0.12); }
+    .section-light .sign-card {
+      background: #fff;
+      border-color: rgba(30,79,163,0.12);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    .section-light .sign-card::before { background: linear-gradient(90deg, var(--blue-accent), transparent); }
+    .section-light .sign-card:hover { border-color: rgba(46,111,212,0.35); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.1); }
+    .section-light .voordeel-item {
+      background: #fff;
+      border-color: rgba(30,79,163,0.12);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+    .section-light .voordeel-item:hover { border-color: rgba(46,111,212,0.3); box-shadow: 0 6px 20px rgba(0,0,0,0.1); }
+    .section-light .voordeel-title { color: #0d1f3c; }
+    .section-light .voordeel-desc { color: #4a6080; }
+    .section-light .voordeel-icon { background: rgba(46,111,212,0.08); }
+
+    /* ── WAT IS DAKRENOVATIE ── */
+    #wat { background: var(--navy-mid); }
+    .wat-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; max-width: 1200px; margin: 0 auto;
+    }
+    .wat-img-wrap {
+      position: relative; border-radius: 4px; overflow: hidden;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.4);
+    }
+    .wat-img-wrap img { width: 100%; display: block; aspect-ratio: 4/3; object-fit: cover; }
+    .wat-img-wrap::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(46,111,212,0.1) 0%, transparent 60%);
+    }
+    .wat-img-wrap::before {
+      content: ''; position: absolute; inset: -1px;
+      border: 1px solid rgba(46,111,212,0.25); border-radius: 4px; z-index: 2; pointer-events: none;
+    }
+    .wat-list { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+    .wat-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 16px 20px;
+      background: rgba(46,111,212,0.06);
+      border: 1px solid rgba(46,111,212,0.15);
+      border-radius: 3px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .wat-item:hover { background: rgba(46,111,212,0.12); border-color: rgba(46,111,212,0.3); }
+    .wat-icon {
+      width: 36px; height: 36px; flex-shrink: 0;
+      background: rgba(46,111,212,0.15);
+      border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .wat-icon svg { width: 18px; height: 18px; stroke: var(--blue-accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .wat-item-title { font-family: 'Barlow Condensed', sans-serif; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.08em; color: var(--white); margin-bottom: 2px; }
+    .wat-item-desc { font-size: 0.85rem; color: var(--text-muted); line-height: 1.5; }
+
+    /* ── WANNEER ── */
+    #wanneer { background: #f7fafc; }
+    .wanneer-inner { max-width: 1200px; margin: 0 auto; }
+    .wanneer-header { margin-bottom: 56px; }
+    .signs-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+    }
+    .sign-card {
+      background: rgba(10,22,46,0.7);
+      border: 1px solid rgba(46,111,212,0.18);
+      border-radius: 4px; padding: 28px 24px;
+      position: relative; overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .sign-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, var(--blue-accent), transparent);
+    }
+    .sign-card:hover { border-color: rgba(46,111,212,0.4); transform: translateY(-3px); }
+    .sign-num {
+      font-family: 'Fjalla One', sans-serif;
+      font-size: 2.8rem; color: rgba(46,111,212,0.15);
+      line-height: 1; margin-bottom: 12px;
+    }
+    .sign-title { font-family: 'Fjalla One', sans-serif; font-size: 1.05rem; color: var(--white); margin-bottom: 8px; letter-spacing: 0.03em; }
+    .sign-desc { font-size: 0.88rem; line-height: 1.65; color: var(--text-muted); }
+
+    /* ── WERKWIJZE ── */
+    #werkwijze { background: var(--navy-mid); }
+    .werkwijze-inner { max-width: 900px; margin: 0 auto; }
+    .stap-list { display: flex; flex-direction: column; gap: 0; margin-top: 48px; position: relative; }
+    .stap-list::before {
+      content: ''; position: absolute; left: 22px; top: 0; bottom: 0; width: 1px;
+      background: linear-gradient(to bottom, var(--blue-accent), rgba(46,111,212,0.1));
+    }
+    .stap {
+      display: flex; gap: 28px; align-items: flex-start;
+      padding: 28px 0; border-bottom: 1px solid rgba(46,111,212,0.1);
+    }
+    .stap:last-child { border-bottom: none; }
+    .stap-circle {
+      width: 46px; height: 46px; flex-shrink: 0;
+      background: var(--blue-accent); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Fjalla One', sans-serif; font-size: 1rem; color: var(--white);
+      position: relative; z-index: 1;
+      box-shadow: 0 0 0 4px var(--navy-mid), 0 0 0 5px rgba(46,111,212,0.3);
+    }
+    .stap-body {}
+    .stap-title { font-family: 'Fjalla One', sans-serif; font-size: 1.1rem; color: var(--white); margin-bottom: 6px; letter-spacing: 0.02em; }
+    .stap-desc { font-size: 0.9rem; line-height: 1.7; color: var(--text-body); max-width: 640px; }
+
+    /* ── VOORDELEN ── */
+    #voordelen { background: #f7fafc; }
+    .voordelen-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px;
+      max-width: 1100px; margin: 0 auto; margin-top: 48px;
+    }
+    .voordeel-item {
+      display: flex; gap: 20px; align-items: flex-start;
+      padding: 24px 28px;
+      background: rgba(10,22,46,0.6);
+      border: 1px solid rgba(46,111,212,0.15);
+      border-radius: 3px;
+      transition: border-color 0.2s;
+    }
+    .voordeel-item:hover { border-color: rgba(46,111,212,0.35); }
+    .voordeel-icon {
+      width: 44px; height: 44px; flex-shrink: 0;
+      background: rgba(46,111,212,0.12); border-radius: 3px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .voordeel-icon svg { width: 22px; height: 22px; stroke: var(--blue-accent); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .voordeel-title { font-family: 'Fjalla One', sans-serif; font-size: 1rem; color: var(--white); margin-bottom: 4px; letter-spacing: 0.02em; }
+    .voordeel-desc { font-size: 0.87rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* ── PORTFOLIO ── */
+    #fotos { background: var(--navy-mid); padding: 100px 8%; }
+    .portfolio-header { text-align: center; margin-bottom: 56px; }
+    .portfolio-header .section-label { justify-content: center; }
+    .portfolio-header .section-label::before { display: none; }
+    .portfolio-featured {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 280px 280px; gap: 10px;
+      max-width: 1100px; margin: 0 auto;
+      border-radius: 8px; overflow: hidden;
+    }
+    .pf-cell { position: relative; overflow: hidden; cursor: pointer; }
+    .pf-cell:first-child { grid-column: 1/2; grid-row: 1/3; }
+    .pf-cell img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .pf-cell:hover img { transform: scale(1.07); }
+    .pf-hover { position: absolute; inset: 0; background: rgba(6,14,30,0.3); opacity: 0; transition: opacity 0.3s; }
+    .pf-cell:hover .pf-hover { opacity: 1; }
+    .pf-more-overlay {
+      position: absolute; inset: 0; background: rgba(6,14,30,0.72);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px;
+    }
+    .pf-more-overlay span:first-child { font-family: 'Fjalla One', sans-serif; font-size: 2.6rem; color: var(--white); line-height: 1; }
+    .pf-more-overlay span:last-child { font-family: 'Barlow Condensed', sans-serif; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ice); }
+    .pf-cell.pf-last:hover .pf-more-overlay { background: rgba(46,111,212,0.55); }
+    .gallery-expand { display: none; max-width: 1100px; margin: 10px auto 0; }
+    .gallery-expand.active { display: block; }
+    .gallery-grid { columns: 4; column-gap: 10px; }
+    @media (max-width: 900px) { .gallery-grid { columns: 3; } }
+    @media (max-width: 600px) { .gallery-grid { columns: 2; } .portfolio-featured { grid-template-columns: 1fr 1fr; grid-template-rows: 200px 200px 200px; } .pf-cell:first-child { grid-column: 1/2; grid-row: 1/2; } }
+    .gallery-thumb { break-inside: avoid; margin-bottom: 10px; border-radius: 4px; overflow: hidden; cursor: pointer; position: relative; }
+    .gallery-thumb img { width: 100%; display: block; transition: transform 0.4s ease; }
+    .gallery-thumb:hover img { transform: scale(1.05); }
+    .gallery-collapse-btn {
+      display: block; margin: 24px auto 0;
+      background: none; border: 1px solid rgba(46,111,212,0.3); color: var(--steel);
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 10px 28px; border-radius: 3px; cursor: pointer; transition: color 0.2s, border-color 0.2s;
+    }
+    .gallery-collapse-btn:hover { color: var(--white); border-color: rgba(46,111,212,0.6); }
+
+    /* ── CTA SECTIE ── */
+    #cta {
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(30,79,163,0.25) 0%, transparent 70%),
+        var(--navy-deep);
+      padding: 100px 8%;
+      text-align: center;
+    }
+    .cta-inner { max-width: 720px; margin: 0 auto; }
+    .cta-title { font-family: 'Fjalla One', sans-serif; font-size: clamp(2rem, 4vw, 3.2rem); color: var(--white); margin-bottom: 16px; }
+    .cta-sub { font-size: 1rem; line-height: 1.75; color: var(--text-body); margin-bottom: 40px; }
+    .cta-form {
+      background: rgba(10,22,46,0.85);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(46,111,212,0.25);
+      border-radius: 4px; padding: 40px;
+      text-align: left; position: relative;
+    }
+    .cta-form::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--blue-accent), var(--ice), var(--blue-accent));
+      border-radius: 4px 4px 0 0;
+    }
+    .cta-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--navy-deep); border-top: 1px solid rgba(46,111,212,0.2); padding: 60px 8% 32px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 48px; margin-bottom: 48px; }
+    .footer-brand-text { font-size: 0.9rem; line-height: 1.7; color: var(--text-muted); margin-top: 20px; margin-bottom: 24px; }
+    .footer-social { display: flex; gap: 10px; }
+    .social-btn { width: 38px; height: 38px; border: 1px solid rgba(46,111,212,0.25); display: flex; align-items: center; justify-content: center; color: var(--steel); text-decoration: none; font-size: 0.9rem; transition: all 0.25s; }
+    .social-btn:hover { background: var(--blue-accent); border-color: var(--blue-accent); color: var(--white); }
+    .footer-heading { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.25em; text-transform: uppercase; color: var(--steel); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid rgba(46,111,212,0.2); }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 0.88rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; display: flex; align-items: center; gap: 8px; }
+    .footer-links a::before { content: '›'; color: var(--blue-accent); }
+    .footer-links a:hover { color: var(--white); }
+    .footer-contact-item { display: flex; gap: 10px; align-items: flex-start; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+    .footer-contact-item strong { color: var(--silver); }
+    .footer-bottom { padding-top: 24px; border-top: 1px solid rgba(46,111,212,0.1); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .footer-copy { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--text-muted); }
+    .footer-legal { display: flex; gap: 24px; }
+    .footer-legal a { font-family: 'Barlow Condensed', sans-serif; font-size: 0.75rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-legal a:hover { color: var(--silver); }
+    .float-phone { position: fixed; bottom: 32px; right: 32px; z-index: 90; width: 56px; height: 56px; background: var(--blue-accent); border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; box-shadow: 0 4px 20px rgba(46,111,212,0.5); transition: transform 0.25s, box-shadow 0.25s; animation: phonePulse 3s ease-in-out infinite; }
+    .float-phone:hover { transform: scale(1.1); }
+    @keyframes phonePulse { 0%,100% { box-shadow: 0 4px 20px rgba(46,111,212,0.5); } 50% { box-shadow: 0 4px 30px rgba(46,111,212,0.8), 0 0 0 10px rgba(46,111,212,0.1); } }
+    @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 680px) { .footer-grid { grid-template-columns: 1fr; } .footer-bottom { flex-direction: column; text-align: center; } }
+
+    /* ── BTN ── */
+    .btn-primary {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 16px 36px; background: var(--blue-accent); color: var(--white);
+      border: none; border-radius: 2px; text-decoration: none; cursor: pointer;
+      transition: all 0.25s; position: relative; overflow: hidden; display: inline-block;
+    }
+    .btn-primary:hover { background: #3a7de0; transform: translateY(-2px); box-shadow: 0 8px 30px rgba(46,111,212,0.4); }
+    .btn-ghost {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 16px 36px; background: transparent; color: var(--silver);
+      border: 1px solid rgba(200,216,236,0.3); border-radius: 2px;
+      text-decoration: none; cursor: pointer; transition: all 0.25s; display: inline-block;
+    }
+    .btn-ghost:hover { border-color: var(--silver); color: var(--white); }
+
+    /* ── LIGHTBOX ── */
+    .lb-overlay {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(4,10,22,0.97);
+      align-items: center; justify-content: center; flex-direction: column;
+    }
+    .lb-overlay.active { display: flex; }
+    .lb-img { max-width: 90vw; max-height: 82vh; object-fit: contain; border-radius: 4px; }
+    .lb-close { position: fixed; top: 20px; right: 28px; font-size: 2.2rem; color: var(--silver); cursor: pointer; background: none; border: none; }
+    .lb-nav { display: flex; gap: 32px; margin-top: 20px; }
+    .lb-btn {
+      background: rgba(46,111,212,0.15); border: 1px solid rgba(46,111,212,0.3);
+      color: var(--white); font-size: 1.4rem; width: 48px; height: 48px; border-radius: 50%;
+      cursor: pointer; display: flex; align-items: center; justify-content: center;
+    }
+    .lb-counter { font-family: 'Barlow Condensed', sans-serif; font-size: 0.85rem; color: var(--steel); margin-top: 12px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) {
+      #hero { grid-template-columns: 1fr; padding: 120px 6% 60px; }
+      .hero-form-card { max-width: 540px; }
+      .wat-grid { grid-template-columns: 1fr; gap: 48px; }
+      .signs-grid { grid-template-columns: 1fr 1fr; }
+      .voordelen-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 768px) {
+      nav { height: 72px; padding: 0 4%; }
+      .nav-logo img { height: 72px; }
+      .nav-back { display: none; }
+      .nav-cta { font-size: 0.78rem; padding: 9px 16px; }
+    }
+    @media (max-width: 680px) {
+      section { padding: 70px 5%; }
+      .signs-grid { grid-template-columns: 1fr; }
+      .cta-grid { grid-template-columns: 1fr; }
+      .hf-row { grid-template-columns: 1fr; }
+    }
+  
+    /* ─── WHATSAPP WIDGET ─── */
+    .float-whatsapp {
+      position: fixed; bottom: 100px; right: 32px; z-index: 90;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px rgba(37,211,102,0.5);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .float-whatsapp:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.7); }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <a class="nav-logo" href="index.html">
+    <img src="logo.png" alt="Dakbedrijf 'T Noorden" />
+    <div class="nav-logo-text">Dakbedrijf<span>'T Noorden</span></div>
+  </a>
+  <a class="nav-back" href="index.html#diensten">← Terug naar diensten</a>
+  <a class="nav-cta" href="#cta">Gratis Offerte</a>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+      24/7 spoedservice
+    </div>
+    <h1 class="hero-title">Spoed<em>service</em></h1>
+    <p class="hero-subtitle">Acute Dakschade? Wij Zijn Er Snel</p>
+    <div class="hero-divider"></div>
+    <p class="hero-desc">
+      Daklekkage midden in de nacht, stormschade na harde wind of een verzakte dakconstructie. Bij acute dakproblemen staan wij dag en nacht voor u klaar — snelle respons, directe noodreparatie.
+    </p>
+    <div class="hero-checks">
+      <div class="hero-check">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Respons binnen 2 uur mogelijk
+      </div>
+      <div class="hero-check">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Noodreparatie dag &amp; nacht
+      </div>
+      <div class="hero-check">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Direct noodafdichting aangebracht
+      </div>
+      <div class="hero-check">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+        Actief in Groningen, Friesland, Drenthe, Zwolle &amp; Utrecht
+      </div>
+    </div>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">Vraag gratis offerte aan →</a>
+      <a href="tel:0858001570" class="btn-ghost">085 80 01 570</a>
+    </div>
+  </div>
+
+  <!-- Form card -->
+  <div class="hero-form-card">
+    <div class="hf-title">Direct een afspraak</div>
+    <div class="hf-sub">Wij bellen u terug binnen 24 uur</div>
+    <div class="hf-row">
+      <div class="hf-group">
+        <label class="hf-label">Voornaam</label>
+        <input class="hf-input" type="text" placeholder="Jan" />
+      </div>
+      <div class="hf-group">
+        <label class="hf-label">Achternaam</label>
+        <input class="hf-input" type="text" placeholder="de Vries" />
+      </div>
+    </div>
+    <div class="hf-group">
+      <label class="hf-label">Telefoonnummer</label>
+      <input class="hf-input" type="tel" placeholder="06 12 34 56 78" />
+    </div>
+    <div class="hf-group">
+      <label class="hf-label">E-mailadres</label>
+      <input class="hf-input" type="email" placeholder="uw@email.nl" />
+    </div>
+    <div class="hf-group">
+      <label class="hf-label">Postcode &amp; Stad</label>
+      <input class="hf-input" type="text" placeholder="9700 AB Groningen" />
+    </div>
+    <div class="hf-group">
+      <label class="hf-label">Omschrijving</label>
+      <textarea class="hf-textarea" rows="3" placeholder="Beschrijf de urgente schade aan uw dak..."></textarea>
+    </div>
+    <button class="hf-btn" onclick="this.textContent='Aanvraag verstuurd ✓';this.style.background='#16a34a';this.disabled=true;">
+      Verstuur aanvraag →
+    </button>
+  </div>
+</section>
+
+<!-- ── TRUST STRIP ── -->
+<div class="trust-strip">
+  <div class="trust-track">
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Gratis Inspectie</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Garantie op Alle Werk</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Snelle Reactietijd</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Gecertificeerde Vakmensen</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2C10.69 2 8 4.69 8 8s2.69 6 6 6c1.2 0 2.32-.36 3.26-.97"/><line x1="2" y1="8" x2="11" y2="8"/><line x1="2" y1="12" x2="11" y2="12"/></svg> Eerlijke Vaste Prijzen</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Noord-Nederland Specialist</div>
+    <!-- duplicate for seamless loop -->
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg> Gratis Inspectie</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Garantie op Alle Werk</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Snelle Reactietijd</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg> Gecertificeerde Vakmensen</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2C10.69 2 8 4.69 8 8s2.69 6 6 6c1.2 0 2.32-.36 3.26-.97"/><line x1="2" y1="8" x2="11" y2="8"/><line x1="2" y1="12" x2="11" y2="12"/></svg> Eerlijke Vaste Prijzen</div>
+    <div class="trust-item"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg> Noord-Nederland Specialist</div>
+  </div>
+</div>
+
+<!-- ── WAT IS DAKRENOVATIE ── -->
+<section id="wat">
+  <div class="wat-grid">
+    <div class="reveal">
+      <div class="wat-img-wrap">
+        <img src="tnoordenfoto/2025-10-07 (5).webp" alt="Noodreparatie dak" loading="lazy" />
+      </div>
+    </div>
+    <div class="reveal" style="transition-delay:0.15s">
+      <div class="section-label">Wat wij doen</div>
+      <h2 class="section-title">Wat houdt onze spoedservice in?</h2>
+      <p class="section-body">
+        Bij acute dakschade is snelheid cruciaal om verdere waterschade te voorkomen. Ons spoedteam komt snel ter plaatse, brengt noodafdichting aan en plant de definitieve reparatie in.
+      </p>
+      <div class="wat-list">
+        <div class="wat-item">
+          <div class="wat-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div>
+            <div class="wat-item-title">Snelle respons</div>
+            <div class="wat-item-desc">Na uw melding nemen wij direct contact op. In spoedsituaties streven wij naar respons binnen 2 uur.</div>
+          </div>
+        </div>
+        <div class="wat-item">
+          <div class="wat-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+          <div>
+            <div class="wat-item-title">Noodreparatie ter plaatse</div>
+            <div class="wat-item-desc">Wij brengen direct een noodafdichting aan om verdere waterinfiltratie en schade te stoppen.</div>
+          </div>
+        </div>
+        <div class="wat-item">
+          <div class="wat-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <div>
+            <div class="wat-item-title">Definitieve oplossing</div>
+            <div class="wat-item-desc">Na de noodreparatie plannen wij de definitieve reparatie in. Wij lossen het probleem structureel en duurzaam op.</div>
+          </div>
+        </div>
+        <div class="wat-item">
+          <div class="wat-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+          <div>
+            <div class="wat-item-title">Documentatie voor verzekering</div>
+            <div class="wat-item-desc">Wij fotograferen de schade uitgebreid. Handig als u een claim bij uw verzekering wilt indienen.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WANNEER ── -->
+<section id="wanneer" class="section-light">
+  <div class="wanneer-inner">
+    <div class="wanneer-header reveal">
+      <div class="section-label">Herkent u dit?</div>
+      <h2 class="section-title">Wanneer heeft u een spoeddienst nodig?</h2>
+      <p class="section-body">Sommige dakproblemen kunnen niet wachten. Bel ons direct bij deze situaties.</p>
+    </div>
+    <div class="signs-grid">
+      <div class="sign-card reveal" style="transition-delay:0.05s">
+        <div class="sign-num">01</div>
+        <div class="sign-title">Actieve daklekkage</div>
+        <div class="sign-desc">Water dat actief naar binnen komt via het dak vereist directe actie. Wacht niet — bel ons nu.</div>
+      </div>
+      <div class="sign-card reveal" style="transition-delay:0.1s">
+        <div class="sign-num">02</div>
+        <div class="sign-title">Stormschade aan dak</div>
+        <div class="sign-desc">Na een storm kunnen dakpannen, nokvorsten of zelfs dakdelen zijn beschadigd of losgeraakt.</div>
+      </div>
+      <div class="sign-card reveal" style="transition-delay:0.15s">
+        <div class="sign-num">03</div>
+        <div class="sign-title">Verzakt of doorgebogen dak</div>
+        <div class="sign-desc">Een plotseling doorbuigend dakvlak wijst op structurele schade. Dit is een veiligheidsrisico — direct actie vereist.</div>
+      </div>
+      <div class="sign-card reveal" style="transition-delay:0.2s">
+        <div class="sign-num">04</div>
+        <div class="sign-title">Ingewaaid dakmateriaal</div>
+        <div class="sign-desc">Pannen, lood of andere dakdelen die door de storm zijn ingewaaid vormen direct gevaar voor omwonenden.</div>
+      </div>
+      <div class="sign-card reveal" style="transition-delay:0.25s">
+        <div class="sign-num">05</div>
+        <div class="sign-title">Groot gat of opening in dak</div>
+        <div class="sign-desc">Een opening in het dak laat water en kou vrij binnenkomen. Noodafdichting is direct noodzakelijk.</div>
+      </div>
+      <div class="sign-card reveal" style="transition-delay:0.3s">
+        <div class="sign-num">06</div>
+        <div class="sign-title">Water loopt door plafond</div>
+        <div class="sign-desc">Actief water op het plafond of door een lamp is een gevaarlijke situatie. Schakel de stroom uit en bel ons direct.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WERKWIJZE ── -->
+<section id="werkwijze">
+  <div class="werkwijze-inner">
+    <div class="reveal">
+      <div class="section-label">Onze aanpak</div>
+      <h2 class="section-title">Hoe werkt onze spoedservice?</h2>
+      <p class="section-body">Bij acuut dakprobleem — zo pakt u het aan.</p>
+    </div>
+    <div class="stap-list">
+      <div class="stap reveal" style="transition-delay:0.05s">
+        <div class="stap-circle">1</div>
+        <div class="stap-body">
+          <div class="stap-title">Bel ons direct</div>
+          <div class="stap-desc">Bel 085 80 01 570. Dag en nacht bereikbaar. Omschrijf kort de situatie zodat wij direct het juiste materiaal meenemen.</div>
+        </div>
+      </div>
+      <div class="stap reveal" style="transition-delay:0.1s">
+        <div class="stap-circle">2</div>
+        <div class="stap-body">
+          <div class="stap-title">Snelle respons</div>
+          <div class="stap-desc">Ons spoedteam streeft ernaar om binnen 2 uur ter plaatse te zijn en beoordeelt direct de situatie.</div>
+        </div>
+      </div>
+      <div class="stap reveal" style="transition-delay:0.15s">
+        <div class="stap-circle">3</div>
+        <div class="stap-body">
+          <div class="stap-title">Noodafdichting</div>
+          <div class="stap-desc">Wij brengen direct een effectieve noodafdichting aan om verdere waterschade te stoppen.</div>
+        </div>
+      </div>
+      <div class="stap reveal" style="transition-delay:0.2s">
+        <div class="stap-circle">4</div>
+        <div class="stap-body">
+          <div class="stap-title">Schade documentatie</div>
+          <div class="stap-desc">De schade wordt uitgebreid gefotografeerd voor uw administratie en eventuele verzekeringsclaim.</div>
+        </div>
+      </div>
+      <div class="stap reveal" style="transition-delay:0.25s">
+        <div class="stap-circle">5</div>
+        <div class="stap-body">
+          <div class="stap-title">Definitieve reparatie inplannen</div>
+          <div class="stap-desc">Na de noodreparatie plannen wij de definitieve oplossing in. U ontvangt een offerte voor de permanente reparatie.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── VOORDELEN ── -->
+<section id="voordelen" class="section-light">
+  <div style="max-width:1100px;margin:0 auto;">
+    <div class="reveal" style="margin-bottom:0;">
+      <div class="section-label">Waarom 'T Noorden</div>
+      <h2 class="section-title">Wat maakt ons anders?</h2>
+    </div>
+    <div class="voordelen-grid">
+      <div class="voordeel-item reveal" style="transition-delay:0.05s">
+        <div class="voordeel-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+        <div>
+          <div class="voordeel-title">Garantie op elk project</div>
+          <div class="voordeel-desc">Wij staan achter ons werk. Elk uitgevoerd project wordt afgedekt met een garantiecertificaat.</div>
+        </div>
+      </div>
+      <div class="voordeel-item reveal" style="transition-delay:0.1s">
+        <div class="voordeel-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <div>
+          <div class="voordeel-title">Snelle uitvoering</div>
+          <div class="voordeel-desc">Dankzij onze ervaren ploegen en goede planning werken wij snel — zonder in te leveren op kwaliteit.</div>
+        </div>
+      </div>
+      <div class="voordeel-item reveal" style="transition-delay:0.15s">
+        <div class="voordeel-icon"><svg viewBox="0 0 24 24"><path d="M14 2C10.69 2 8 4.69 8 8s2.69 6 6 6c1.2 0 2.32-.36 3.26-.97"/><line x1="2" y1="8" x2="11" y2="8"/><line x1="2" y1="12" x2="11" y2="12"/></svg></div>
+        <div>
+          <div class="voordeel-title">Transparante prijzen</div>
+          <div class="voordeel-desc">Wat er in de offerte staat, is wat u betaalt. Geen verrassingen op de eindrekening.</div>
+        </div>
+      </div>
+      <div class="voordeel-item reveal" style="transition-delay:0.2s">
+        <div class="voordeel-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <div>
+          <div class="voordeel-title">Lokaal &amp; persoonlijk</div>
+          <div class="voordeel-desc">Wij zijn een Noord-Nederlands bedrijf. U spreekt altijd met dezelfde contactpersoon, geen callcenters.</div>
+        </div>
+      </div>
+      <div class="voordeel-item reveal" style="transition-delay:0.25s">
+        <div class="voordeel-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg></div>
+        <div>
+          <div class="voordeel-title">Hoogwaardige materialen</div>
+          <div class="voordeel-desc">Wij werken uitsluitend met bewezen kwaliteitsmaterialen van gerenommeerde leveranciers.</div>
+        </div>
+      </div>
+      <div class="voordeel-item reveal" style="transition-delay:0.3s">
+        <div class="voordeel-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.18h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.77a16 16 0 0 0 6.29 6.29l1.06-.97a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
+        <div>
+          <div class="voordeel-title">24/7 spoedservice</div>
+          <div class="voordeel-desc">Bij acute dakschade staan wij dag en nacht voor u klaar. Bel ons en wij zijn er snel bij.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PORTFOLIO ── -->
+<section id="fotos">
+  <div class="portfolio-header reveal">
+    <div class="section-label">Ons Werk</div>
+    <h2 class="section-title">Onze Projecten</h2>
+    <p class="section-body" style="margin:0 auto;text-align:center;max-width:520px;">Een greep uit onze uitgevoerde dakprojecten — vakmanschap dat voor zich spreekt.</p>
+  </div>
+
+  <div class="portfolio-featured reveal">
+    <div class="pf-cell" onclick="openLightbox(0)"><img src="tnoordenfoto/2025-05-20.webp" alt="Dakproject"/><div class="pf-hover"></div></div>
+    <div class="pf-cell" onclick="openLightbox(1)"><img src="tnoordenfoto/2025-10-07.webp" alt="Dakproject"/><div class="pf-hover"></div></div>
+    <div class="pf-cell" onclick="openLightbox(2)"><img src="tnoordenfoto/2025-05-20 (3).webp" alt="Dakproject"/><div class="pf-hover"></div></div>
+    <div class="pf-cell" onclick="openLightbox(3)"><img src="tnoordenfoto/2025-10-07 (5).webp" alt="Dakproject"/><div class="pf-hover"></div></div>
+    <div class="pf-cell" onclick="openLightbox(4)"><img src="tnoordenfoto/unnamed.webp" alt="Dakproject"/><div class="pf-hover"></div></div>
+    <div class="pf-cell pf-last" onclick="openGallery()">
+      <img src="tnoordenfoto/2026-02-09.webp" alt="Meer foto's"/>
+      <div class="pf-more-overlay"><span>+28</span><span>Bekijk alle foto's</span></div>
+    </div>
+  </div>
+
+  <div class="gallery-expand" id="galleryExpand">
+    <div class="gallery-grid">
+      <div class="gallery-thumb" onclick="openLightbox(0)"><img src="tnoordenfoto/2025-05-20.webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(1)"><img src="tnoordenfoto/2025-05-20 (1).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(2)"><img src="tnoordenfoto/2025-05-20 (2).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(3)"><img src="tnoordenfoto/2025-05-20 (3).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(4)"><img src="tnoordenfoto/2025-05-20 (4).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(5)"><img src="tnoordenfoto/2025-05-20 (5).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(6)"><img src="tnoordenfoto/2025-05-20 (6).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(7)"><img src="tnoordenfoto/2025-05-20 (7).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(8)"><img src="tnoordenfoto/2025-05-20 (8).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(9)"><img src="tnoordenfoto/2025-05-20 (9).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(10)"><img src="tnoordenfoto/2025-05-20 (10).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(11)"><img src="tnoordenfoto/2025-05-20 (11).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(12)"><img src="tnoordenfoto/2025-05-20 (12).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(13)"><img src="tnoordenfoto/2025-10-07.webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(14)"><img src="tnoordenfoto/2025-10-07 (1).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(15)"><img src="tnoordenfoto/2025-10-07 (2).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(16)"><img src="tnoordenfoto/2025-10-07 (3).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(17)"><img src="tnoordenfoto/2025-10-07 (4).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(18)"><img src="tnoordenfoto/2025-10-07 (5).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(19)"><img src="tnoordenfoto/2025-10-07 (6).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(20)"><img src="tnoordenfoto/2025-10-07 (7).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(21)"><img src="tnoordenfoto/2025-10-07 (8).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(22)"><img src="tnoordenfoto/2025-10-07 (9).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(23)"><img src="tnoordenfoto/2025-10-07 (10).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(24)"><img src="tnoordenfoto/2025-10-07 (11).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(25)"><img src="tnoordenfoto/2025-10-07 (12).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(26)"><img src="tnoordenfoto/2025-10-07 (13).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(27)"><img src="tnoordenfoto/2026-02-09.webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(28)"><img src="tnoordenfoto/unnamed.webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(29)"><img src="tnoordenfoto/unnamed (1).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(30)"><img src="tnoordenfoto/unnamed (2).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(31)"><img src="tnoordenfoto/unnamed (3).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(32)"><img src="tnoordenfoto/unnamed (4).webp" loading="lazy"/></div>
+      <div class="gallery-thumb" onclick="openLightbox(33)"><img src="tnoordenfoto/unnamed (5).webp" loading="lazy"/></div>
+    </div>
+    <button class="gallery-collapse-btn" onclick="closeGallery()">Minder tonen ↑</button>
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lb-overlay" id="lb" onclick="if(event.target===this)closeLb()">
+  <button class="lb-close" onclick="closeLb()">×</button>
+  <img class="lb-img" id="lb-img" src="" alt=""/>
+  <div class="lb-nav">
+    <button class="lb-btn" onclick="lbStep(-1)">‹</button>
+    <button class="lb-btn" onclick="lbStep(1)">›</button>
+  </div>
+  <div class="lb-counter" id="lb-counter"></div>
+</div>
+
+<!-- ── CTA SECTIE ── -->
+<section id="cta">
+  <div class="cta-inner">
+    <div class="reveal">
+      <div class="section-label" style="justify-content:center;"><span></span>Vrijblijvend &amp; Kosteloos</div>
+      <h2 class="cta-title">Acute dakschade? Bel ons nu.</h2>
+      <p class="cta-sub">085 80 01 570 — dag en nacht bereikbaar. Wij zijn er zo snel mogelijk bij.</p>
+    </div>
+    <div class="cta-form reveal" style="transition-delay:0.15s">
+      <div class="cta-grid">
+        <div class="hf-group">
+          <label class="hf-label">Naam</label>
+          <input class="hf-input" type="text" placeholder="Uw volledige naam" />
+        </div>
+        <div class="hf-group">
+          <label class="hf-label">Telefoonnummer</label>
+          <input class="hf-input" type="tel" placeholder="06 12 34 56 78" />
+        </div>
+        <div class="hf-group">
+          <label class="hf-label">E-mailadres</label>
+          <input class="hf-input" type="email" placeholder="uw@email.nl" />
+        </div>
+        <div class="hf-group">
+          <label class="hf-label">Postcode &amp; Stad</label>
+          <input class="hf-input" type="text" placeholder="9700 AB Groningen" />
+        </div>
+      </div>
+      <div class="hf-group">
+        <label class="hf-label">Omschrijving (optioneel)</label>
+        <textarea class="hf-textarea" rows="3" placeholder="Wat is er aan de hand met uw dak?"></textarea>
+      </div>
+      <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:8px;">
+        <button class="btn-primary" style="flex:1;padding:16px;text-align:center;"
+          onclick="this.textContent='Aanvraag verstuurd ✓';this.style.background='#16a34a';this.disabled=true;">
+          Verstuur gratis aanvraag →
+        </button>
+        <a href="tel:0858001570" class="btn-ghost" style="white-space:nowrap;">☎ 085 80 01 570</a>
+      </div>
+      <div class="hf-note" style="margin-top:14px;">🔒 Vrijblijvend · Geen verplichtingen · Reactie binnen 24 uur</div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a class="nav-logo" href="index.html" style="display:inline-flex;margin-bottom:4px;">
+        <img src="logo.png" alt="Dakbedrijf 'T Noorden" style="height:100px;filter:drop-shadow(0 0 8px rgba(46,111,212,0.4));" />
+        <div class="nav-logo-text" style="margin-left:12px;">Dakbedrijf<span>'T Noorden</span></div>
+      </a>
+      <p class="footer-brand-text">Uw betrouwbare dakspecialist in Noord-Nederland. Wij staan garant voor vakmanschap, kwaliteit en eerlijke prijzen.</p>
+    </div>
+    <div>
+      <div class="footer-heading">Diensten</div>
+      <ul class="footer-links">
+        <li><a href="dakrenovatie.html">Dakrenovatie</a></li>
+        <li><a href="bitumen-daken.html">Bitumen Daken</a></li>
+        <li><a href="daklekkage.html">Daklekkage</a></li>
+        <li><a href="dakinspectie.html">Dakinspectie</a></li>
+        <li><a href="dak-isolatie.html">Dak Isolatie</a></li>
+        <li><a href="spoed.html">Spoed</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Bedrijf</div>
+      <ul class="footer-links">
+        <li><a href="index.html#over-ons">Over Ons</a></li>
+        <li><a href="index.html#werkgebied">Werkgebied</a></li>
+        <li><a href="index.html#portfolio">Portfolio</a></li>
+        <li><a href="index.html#reviews">Reviews</a></li>
+        <li><a href="index.html#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-heading">Contact</div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent)" stroke-width="1.5" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;margin-top:2px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 9.81 19.79 19.79 0 0 1 1 1.18 2 2 0 0 1 3 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16z"/></svg>
+        <span><strong>085 80 01 570</strong><br/>Ma–Vr 07:30–17:30</span>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent)" stroke-width="1.5" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;margin-top:2px"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        <span><strong>info@dakbedrijftnoorden.nl</strong></span>
+      </div>
+      <div class="footer-contact-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--blue-accent)" stroke-width="1.5" stroke-linecap="round" style="width:16px;height:16px;flex-shrink:0;margin-top:2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <span>Winthontlaan 200<br/>3526 KV Utrecht</span>
+      </div>
+      <div style="margin-top:20px;">
+        <a class="btn-primary" href="#cta" style="display:inline-block;font-size:0.8rem;padding:12px 24px;">Gratis Offerte</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2024 Dakbedrijf 'T Noorden · KvK 12345678 · BTW NL123456789B01</div>
+    <div class="footer-legal">
+      <a href="privacybeleid.html">Privacybeleid</a>
+      <a href="algemene-voorwaarden.html">Algemene Voorwaarden</a>
+      <a href="privacybeleid.html#cookie">Cookiebeleid</a>
+    </div>
+  </div>
+</footer>
+
+<a class="float-whatsapp" href="https://wa.me/31612370853" target="_blank" rel="noopener" aria-label="WhatsApp ons">
+  <svg viewBox="0 0 24 24" fill="white" width="26" height="26"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+<a class="float-phone" href="tel:0858001570" aria-label="Bel ons">
+  <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" style="width:24px;height:24px"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 3.07 9.81 19.79 19.79 0 0 1 1 1.18 2 2 0 0 1 3 0h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.09 7.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16z"/></svg>
+</a>
+
+<script>
+  // Reveal on scroll
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  reveals.forEach(el => io.observe(el));
+
+  // Portfolio gallery
+  function openGallery() {
+    const el = document.getElementById('galleryExpand');
+    el.classList.add('active');
+    setTimeout(function(){ el.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 50);
+  }
+  function closeGallery() {
+    document.getElementById('galleryExpand').classList.remove('active');
+  }
+
+  // Lightbox
+  const lbPhotos = [
+    'tnoordenfoto/2025-05-20.webp','tnoordenfoto/2025-05-20 (1).webp','tnoordenfoto/2025-05-20 (2).webp',
+    'tnoordenfoto/2025-05-20 (3).webp','tnoordenfoto/2025-05-20 (4).webp','tnoordenfoto/2025-05-20 (5).webp',
+    'tnoordenfoto/2025-05-20 (6).webp','tnoordenfoto/2025-05-20 (7).webp','tnoordenfoto/2025-05-20 (8).webp',
+    'tnoordenfoto/2025-05-20 (9).webp','tnoordenfoto/2025-05-20 (10).webp','tnoordenfoto/2025-05-20 (11).webp',
+    'tnoordenfoto/2025-05-20 (12).webp','tnoordenfoto/2025-10-07.webp','tnoordenfoto/2025-10-07 (1).webp',
+    'tnoordenfoto/2025-10-07 (2).webp','tnoordenfoto/2025-10-07 (3).webp','tnoordenfoto/2025-10-07 (4).webp',
+    'tnoordenfoto/2025-10-07 (5).webp','tnoordenfoto/2025-10-07 (6).webp','tnoordenfoto/2025-10-07 (7).webp',
+    'tnoordenfoto/2025-10-07 (8).webp','tnoordenfoto/2025-10-07 (9).webp','tnoordenfoto/2025-10-07 (10).webp',
+    'tnoordenfoto/2025-10-07 (11).webp','tnoordenfoto/2025-10-07 (12).webp','tnoordenfoto/2025-10-07 (13).webp',
+    'tnoordenfoto/2026-02-09.webp','tnoordenfoto/unnamed.webp','tnoordenfoto/unnamed (1).webp',
+    'tnoordenfoto/unnamed (2).webp','tnoordenfoto/unnamed (3).webp','tnoordenfoto/unnamed (4).webp','tnoordenfoto/unnamed (5).webp'
+  ];
+  let lbIdx = 0;
+  function openLightbox(i) {
+    lbIdx = i;
+    document.getElementById('lb-img').src = lbPhotos[lbIdx];
+    document.getElementById('lb-counter').textContent = (lbIdx + 1) + ' / ' + lbPhotos.length;
+    document.getElementById('lb').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLb() {
+    document.getElementById('lb').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  function lbStep(d) {
+    lbIdx = (lbIdx + d + lbPhotos.length) % lbPhotos.length;
+    document.getElementById('lb-img').src = lbPhotos[lbIdx];
+    document.getElementById('lb-counter').textContent = (lbIdx + 1) + ' / ' + lbPhotos.length;
+  }
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lb').classList.contains('active')) return;
+    if (e.key === 'ArrowRight') lbStep(1);
+    if (e.key === 'ArrowLeft') lbStep(-1);
+    if (e.key === 'Escape') closeLb();
+  });
+</script>
+</body>
+</html>
