@@ -469,8 +469,9 @@
     .service-link:hover { gap: 10px; }
     .service-link::after { content: '→'; }
 
+    .service-card { cursor: pointer; }
     @media (max-width: 1100px) { .services-grid { grid-template-columns: repeat(3, 1fr); } }
-    @media (max-width: 700px)  { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 700px)  { .services-grid { grid-template-columns: repeat(2, 1fr); } .service-num { display: none; } }
 
     /* ─── PORTFOLIO ─── */
     #portfolio {
@@ -2024,6 +2025,16 @@
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
   }, { threshold: 0.12 });
   reveals.forEach(el => io.observe(el));
+
+  // ── Service cards volledig klikbaar
+  document.querySelectorAll('.service-card').forEach(function(card) {
+    var link = card.querySelector('.service-link');
+    if (link) {
+      card.addEventListener('click', function(e) {
+        if (!e.target.closest('a')) window.location.href = link.href;
+      });
+    }
+  });
 
   // ── Counter animation
   const counters = document.querySelectorAll('.count-num');
