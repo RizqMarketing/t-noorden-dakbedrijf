@@ -330,17 +330,17 @@
       <button class="popup-close" onclick="closePopup()" aria-label="Sluiten">&#10005;</button>
     </div>
     <div class="popup-body">
-      <form onsubmit="handlePopupForm(event)">
+      <form data-form="popup">
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
-          <div class="hf-group"><label class="hf-label">Voornaam *</label><input type="text" class="hf-input" placeholder="Jan" required /></div>
-          <div class="hf-group"><label class="hf-label">Achternaam *</label><input type="text" class="hf-input" placeholder="Janssen" required /></div>
+          <div class="hf-group"><label class="hf-label">Voornaam *</label><input type="text" class="hf-input" name="voornaam" placeholder="Jan" required /></div>
+          <div class="hf-group"><label class="hf-label">Achternaam *</label><input type="text" class="hf-input" name="achternaam" placeholder="Janssen" required /></div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px;">
-          <div class="hf-group"><label class="hf-label">Telefoon *</label><input type="tel" class="hf-input" placeholder="06 12 37 08 53" required /></div>
-          <div class="hf-group"><label class="hf-label">E-mailadres *</label><input type="email" class="hf-input" placeholder="uw@email.nl" required /></div>
+          <div class="hf-group"><label class="hf-label">Telefoon *</label><input type="tel" class="hf-input" name="telefoon" placeholder="06 12 37 08 53" required /></div>
+          <div class="hf-group"><label class="hf-label">E-mailadres *</label><input type="email" class="hf-input" name="email" placeholder="uw@email.nl" required /></div>
         </div>
-        <div class="hf-group" style="margin-bottom:14px;"><label class="hf-label">Postcode &amp; Stad *</label><input type="text" class="hf-input" placeholder="9700 AB Groningen" required /></div>
-        <div class="hf-group" style="margin-bottom:18px;"><label class="hf-label">Uw Bericht</label><textarea class="hf-textarea" rows="3" placeholder="Beschrijf uw situatie of vraag&hellip;"></textarea></div>
+        <div class="hf-group" style="margin-bottom:14px;"><label class="hf-label">Postcode &amp; Stad *</label><input type="text" class="hf-input" name="postcode_stad" placeholder="9700 AB Groningen" required /></div>
+        <div class="hf-group" style="margin-bottom:18px;"><label class="hf-label">Uw Bericht</label><textarea class="hf-textarea" name="bericht" rows="3" placeholder="Beschrijf uw situatie of vraag&hellip;"></textarea></div>
         <button type="submit" class="btn-primary" style="width:100%;font-size:1rem;padding:15px;justify-content:center;">Verstuur Aanvraag &rarr;</button>
         <p style="font-size:0.76rem;color:var(--text-muted);margin-top:10px;text-align:center;">&#128274; Geen verplichtingen &middot; Gratis advies &middot; 100% vrijblijvend</p>
       </form>
@@ -367,5 +367,7 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closePopup(); });
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="assets/emailjs-forms.js"></script>
 </body>
 </html>

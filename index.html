@@ -1340,24 +1340,24 @@
       Vrijblijvend · Reactie binnen 24 uur
     </div>
 
-    <form onsubmit="handleHeroForm(event)">
+    <form data-form="hero">
       <div class="hf-row">
         <div class="hf-group">
           <label class="hf-label">Voornaam</label>
-          <input class="hf-input" type="text" placeholder="Jan" required />
+          <input class="hf-input" type="text" name="voornaam" placeholder="Jan" required />
         </div>
         <div class="hf-group">
           <label class="hf-label">Achternaam</label>
-          <input class="hf-input" type="text" placeholder="Janssen" required />
+          <input class="hf-input" type="text" name="achternaam" placeholder="Janssen" required />
         </div>
       </div>
       <div class="hf-group">
         <label class="hf-label">Telefoonnummer</label>
-        <input class="hf-input" type="tel" placeholder="+31 6 12 34 56 78" required />
+        <input class="hf-input" type="tel" name="telefoon" placeholder="+31 6 12 34 56 78" required />
       </div>
       <div class="hf-group">
         <label class="hf-label">Soort dakwerk</label>
-        <select class="hf-select">
+        <select class="hf-select" name="dienst">
           <option value="">Kies een optie...</option>
           <option>Dakbedekking</option>
           <option>Dakreparatie</option>
@@ -1371,7 +1371,7 @@
       </div>
       <div class="hf-group">
         <label class="hf-label">Omschrijving</label>
-        <textarea class="hf-textarea" rows="3" placeholder="Korte omschrijving van uw dakvraag..."></textarea>
+        <textarea class="hf-textarea" name="bericht" rows="3" placeholder="Korte omschrijving van uw dakvraag..."></textarea>
       </div>
       <button class="hf-btn" type="submit">
         <span class="hf-btn-text">Vraag Gratis Offerte Aan</span>
@@ -1915,34 +1915,34 @@
     </div>
 
     <div class="contact-form-wrapper reveal" style="transition-delay:0.2s">
-      <form onsubmit="handleForm(event)">
+      <form data-form="contact">
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Voornaam *</label>
-            <input type="text" class="form-control" placeholder="Jan" required />
+            <input type="text" class="form-control" name="voornaam" placeholder="Jan" required />
           </div>
           <div class="form-group">
             <label class="form-label">Achternaam *</label>
-            <input type="text" class="form-control" placeholder="Janssen" required />
+            <input type="text" class="form-control" name="achternaam" placeholder="Janssen" required />
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label class="form-label">Telefoon *</label>
-            <input type="tel" class="form-control" placeholder="06 - 12 34 56 78" required />
+            <input type="tel" class="form-control" name="telefoon" placeholder="06 - 12 34 56 78" required />
           </div>
           <div class="form-group">
             <label class="form-label">E-mailadres *</label>
-            <input type="email" class="form-control" placeholder="uw@email.nl" required />
+            <input type="email" class="form-control" name="email" placeholder="uw@email.nl" required />
           </div>
         </div>
         <div class="form-group">
           <label class="form-label">Postcode & Stad *</label>
-          <input type="text" class="form-control" placeholder="9700 AB Groningen" required />
+          <input type="text" class="form-control" name="postcode_stad" placeholder="9700 AB Groningen" required />
         </div>
         <div class="form-group">
           <label class="form-label">Type Aanvraag</label>
-          <select class="form-select">
+          <select class="form-select" name="dienst">
             <option value="">Selecteer een dienst…</option>
             <option>Dakrenovatie</option>
             <option>Bitumen Daken</option>
@@ -1961,7 +1961,7 @@
         </div>
         <div class="form-group">
           <label class="form-label">Uw Bericht</label>
-          <textarea class="form-control" placeholder="Beschrijf uw situatie of vraag…"></textarea>
+          <textarea class="form-control" name="bericht" placeholder="Beschrijf uw situatie of vraag…"></textarea>
         </div>
         <button type="submit" class="btn-primary" style="width:100%;font-size:1rem;padding:18px;">
           Verstuur Aanvraag →
@@ -2144,34 +2144,34 @@
       <button class="popup-close" onclick="closePopup()" aria-label="Sluiten">&#10005;</button>
     </div>
     <div class="popup-body">
-      <form onsubmit="handlePopupForm(event)">
+      <form data-form="popup">
         <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
           <div class="form-group">
             <label class="form-label">Voornaam *</label>
-            <input type="text" class="form-control" placeholder="Jan" required />
+            <input type="text" class="form-control" name="voornaam" placeholder="Jan" required />
           </div>
           <div class="form-group">
             <label class="form-label">Achternaam *</label>
-            <input type="text" class="form-control" placeholder="Janssen" required />
+            <input type="text" class="form-control" name="achternaam" placeholder="Janssen" required />
           </div>
         </div>
         <div class="form-row" style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px;">
           <div class="form-group">
             <label class="form-label">Telefoon *</label>
-            <input type="tel" class="form-control" placeholder="06 - 12 34 56 78" required />
+            <input type="tel" class="form-control" name="telefoon" placeholder="06 - 12 34 56 78" required />
           </div>
           <div class="form-group">
             <label class="form-label">E-mailadres *</label>
-            <input type="email" class="form-control" placeholder="uw@email.nl" required />
+            <input type="email" class="form-control" name="email" placeholder="uw@email.nl" required />
           </div>
         </div>
         <div class="form-group" style="margin-bottom:16px;">
           <label class="form-label">Postcode & Stad *</label>
-          <input type="text" class="form-control" placeholder="9700 AB Groningen" required />
+          <input type="text" class="form-control" name="postcode_stad" placeholder="9700 AB Groningen" required />
         </div>
         <div class="form-group" style="margin-bottom:16px;">
           <label class="form-label">Type Aanvraag</label>
-          <select class="form-select">
+          <select class="form-select" name="dienst">
             <option value="">Selecteer een dienst…</option>
             <option>Dakrenovatie</option>
             <option>Bitumen Daken</option>
@@ -2190,7 +2190,7 @@
         </div>
         <div class="form-group" style="margin-bottom:20px;">
           <label class="form-label">Uw Bericht</label>
-          <textarea class="form-control" rows="3" placeholder="Beschrijf uw situatie of vraag…"></textarea>
+          <textarea class="form-control" name="bericht" rows="3" placeholder="Beschrijf uw situatie of vraag…"></textarea>
         </div>
         <button type="submit" class="btn-primary" style="width:100%;font-size:1rem;padding:16px;justify-content:center;">
           Verstuur Aanvraag →
@@ -2310,5 +2310,8 @@
     }, 2500);
   }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="assets/emailjs-forms.js"></script>
 </body>
 </html>
