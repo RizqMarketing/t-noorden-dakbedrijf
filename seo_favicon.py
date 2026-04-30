@@ -39,9 +39,9 @@ SCHEMA_HOMEPAGE = '''  <script type="application/ld+json">
     "email": "info@dakbedrijftnoorden.nl",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Winthontlaan 200",
-      "addressLocality": "Utrecht",
-      "postalCode": "3526 KV",
+      "streetAddress": "Leonard Springerlaan 35",
+      "addressLocality": "Groningen",
+      "postalCode": "9727 KB",
       "addressCountry": "NL"
     },
     "areaServed": ["Groningen", "Friesland", "Drenthe", "Zwolle", "Utrecht"],
